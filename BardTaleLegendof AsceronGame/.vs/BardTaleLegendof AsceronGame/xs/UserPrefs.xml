@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{19AB80EA-BCA0-D4DF-53BD-37B05037AEFE}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/EnterGameManager.cs">
     <Files>
-      <File FileName="Assets/Script/EnterGameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/EnterGameManager.cs" Line="8" Column="6" />
+      <File FileName="Assets/Script/PlayerMovement.cs" Line="7" Column="1" />
+      <File FileName="Assets/Script/GameManager.cs" Line="12" Column="49" />
+      <File FileName="Assets/Script/BattleManager.cs" Line="6" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
