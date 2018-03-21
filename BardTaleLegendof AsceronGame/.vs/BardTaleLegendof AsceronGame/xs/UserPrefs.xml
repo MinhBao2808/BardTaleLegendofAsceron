@@ -1,10 +1,19 @@
 ﻿<Properties StartupConfiguration="{19AB80EA-BCA0-D4DF-53BD-37B05037AEFE}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GetPlayerAction.cs">
     <Files>
-      <File FileName="Assets/Script/EnterGameManager.cs" Line="7" Column="5" />
+      <File FileName="Assets/Script/EnterGameManager.cs" Line="8" Column="35" />
       <File FileName="Assets/Script/PlayerMovement.cs" Line="7" Column="1" />
-      <File FileName="Assets/Script/GameManager.cs" Line="12" Column="53" />
-      <File FileName="Assets/Script/BattleManager.cs" Line="8" Column="33" />
+      <File FileName="Assets/Script/GameManager.cs" Line="17" Column="43" />
+      <File FileName="Assets/Script/StartBattle.cs" Line="12" Column="41" />
+      <File FileName="Assets/Script/PlayerStat.cs" Line="20" Column="34" />
+      <File FileName="Assets/Script/ChoosePlayer.cs" Line="36" Column="29" />
+      <File FileName="Assets/Script/GetPlayerAction.cs" Line="41" Column="1" />
+      <File FileName="Assets/Script/BattleManager.cs" Line="77" Column="82" />
+      <File FileName="Assets/Script/EnemyAction.cs" Line="37" Column="1" />
+      <File FileName="Assets/Script/KillEmeny.cs" Line="9" Column="37" />
+      <File FileName="Assets/Script/CreateEnemyMenu.cs" Line="25" Column="69" />
+      <File FileName="Assets/Script/AdCallBackButton.cs" Line="10" Column="89" />
+      <File FileName="Assets/Script/CollectReward.cs" Line="12" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
