@@ -5,7 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BattleManager : MonoBehaviour {
-
+    public static BattleManager instance = null;
+    [SerializeField] private GameObject playerHealthName;//get player health text game object
+    [SerializeField] private GameObject playerManaName;//get player mana text game objec
     [SerializeField] private Text playerHealthText;
     [SerializeField] private Text playerManaText;
     //[SerializeField] private GameObject player;
@@ -15,6 +17,12 @@ public class BattleManager : MonoBehaviour {
     //private List<int> unitTurn;
     private GameObject playerParty;
     public GameObject enemyEncounter;
+
+	void Awake() {
+        if (instance == null) {
+            instance = this;
+        }	 
+	}
 
 	void Start() {
         this.playerParty = GameObject.Find("PlayerParty");
@@ -37,17 +45,26 @@ public class BattleManager : MonoBehaviour {
         //unitTurn.Sort();
         unitStats.Sort();
         this.actionsMenu.SetActive(false);
+        this.playerHealthName.SetActive(false);
+        this.playerManaName.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
         this.nextTurn();
 	}
 
-	//void Update() {
-    //    nextTurn();
-    //}
+    public void SetPlayerInfoUI(PlayerStat currentPlayerStat) {
+        playerHealthName.SetActive(true);
+        playerManaName.SetActive(true);
+        playerHealthText.text = "" + currentPlayerStat.health;
+        playerManaText.text = "" + currentPlayerStat.mana;
+    }
+
+    public void SetActivePlayerInfoUI () {
+        playerHealthName.SetActive(false);
+        playerManaName.SetActive(false);
+    }
 
     public void nextTurn() {
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(remainEnemyUnit.Length);
         if (remainEnemyUnit.Length == 0) {
             SceneManager.LoadScene(1);
         }
@@ -55,26 +72,15 @@ public class BattleManager : MonoBehaviour {
         if (remainPlayerUnit.Length == 0) {
             SceneManager.LoadScene(0);
         }
-        //int turnOfUnit = unitTurn[0];
         PlayerStat currentUnitStat = unitStats[0];
-        //foreach (PlayerStat unitStat in unitStats) {
-        //    if (unitStat.nextActTurn == turnOfUnit) {
-        //        currentUnitStat = unitStat;
-        //    }
-        //}
-        //Debug.Log(turnOfUnit);
         unitStats.Remove(currentUnitStat);
-        //unitTurn.Remove(turnOfUnit);
         if (!currentUnitStat.isDead()) {
             GameObject currentUnit = currentUnitStat.gameObject;
             currentUnitStat.CalculateNextTurn(currentUnitStat.nextActTurn);
-            //Debug.Log(currentUnitStat.nextActTurn);
             unitStats.Add(currentUnitStat);
-            //unitTurn.Add(currentUnitStat.nextActTurn);
-            //unitTurn.Sort();
-            unitStats.Sort();
+            //unitStats.Sort();
             if (currentUnit.tag == "PlayerUnit") {
-                this.playerParty.GetComponent<ChoosePlayer>().SelectCurrentPlayer(currentUnit.gameObject);
+                this.playerParty.GetComponent<ChoosePlayer>().SelectCurrentPlayer(currentUnit.gameObject,currentUnitStat);
             }
             else {
                 currentUnit.GetComponent<EnemyAction>().Action();
@@ -84,16 +90,4 @@ public class BattleManager : MonoBehaviour {
             this.nextTurn();
         }
     }
-
-    //public void ChangePlayer(GameObject newPlayer) {
-    //    this.player = newPlayer;
-    //}
-
-    //public float NewHealthStat(GameObject newPlayer) {
-    //    return player.GetComponent<PlayerStat>().health;
-    //}
-
-    //public float NewManaStat(GameObject newPlayer) {
-    //    return player.GetComponent<PlayerStat>().mana;
-    //}
 }

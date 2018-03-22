@@ -18,8 +18,9 @@ public class ChoosePlayer : MonoBehaviour {
         }
     }
 
-    public void SelectCurrentPlayer (GameObject player) {
+    public void SelectCurrentPlayer (GameObject player,PlayerStat currentPlayerStat) {
         this.currentPlayer = player;
+        BattleManager.instance.SetPlayerInfoUI(currentPlayerStat);
         this.actionsMenu.SetActive(true);
         this.enemyUnitsMenu.SetActive(false);
     }
@@ -30,9 +31,9 @@ public class ChoosePlayer : MonoBehaviour {
     }
 
     public void PlayerAttackEnemy (GameObject enemy) {
+        BattleManager.instance.SetActivePlayerInfoUI();
         this.actionsMenu.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
-        this.currentPlayer.GetComponent<GetPlayerAction>().AttackTarget(enemy);
-        Debug.Log("damage");
+        this.currentPlayer.GetComponent<GetPlayerAction>().AttackTarget(enemy,currentPlayer);
     }
 }

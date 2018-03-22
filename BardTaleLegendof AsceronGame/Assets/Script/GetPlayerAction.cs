@@ -6,9 +6,10 @@ public class GetPlayerAction : MonoBehaviour {
     private bool actionStarted = false;
     private Vector3 startPosition;
 
-	private void Start() {
-        startPosition = transform.position;
-	}
+	//private void Start() {
+ //       //startPosition = transform.position;
+ //       Debug.Log(startPosition);
+	//}
 
 	public void updatePlayerUI () {
         //Get use face
@@ -18,14 +19,14 @@ public class GetPlayerAction : MonoBehaviour {
 
     }
 
-    public void AttackTarget (GameObject target) {
+    public void AttackTarget (GameObject target,GameObject player) {
+        startPosition = player.gameObject.transform.position;
         StartCoroutine(TimeForAction(target));
-        GameObject turnSystem = GameObject.Find("BattleManager");
-        turnSystem.GetComponent<BattleManager>().nextTurn();
+
     }
 
     IEnumerator TimeForAction(GameObject target)  {
-        actionStarted = true;
+
         Vector3 targetPosition = new Vector3(target.transform.position.x - 2.0f, target.transform.position.y, target.transform.position.z);
         while (MoveTowardsTarget(targetPosition)) {
             yield return null;
@@ -33,16 +34,17 @@ public class GetPlayerAction : MonoBehaviour {
         //wait a bit
         yield return new WaitForSeconds(0.5f);
         //do damage
-
+        actionStarted = true;
         //owner attack return to start positon
         Vector3 firstPosition = startPosition;
         while (MoveTowardsTarget(firstPosition)) {
             yield return null;
         }
-        if (actionStarted) {
-            Debug.Log("fuck");
-            yield break;
+        if (actionStarted == true) {
+            GameObject turnSystem = GameObject.Find("BattleManager");
+            turnSystem.GetComponent<BattleManager>().nextTurn();
         }
+
     }
 
     private bool MoveTowardsTarget(Vector3 target) {

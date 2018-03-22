@@ -26,8 +26,6 @@ public class EnemyAction : MonoBehaviour {
     public void Action () {
         GameObject target = FindRandomTarget();
         StartCoroutine(TimeForAction(target));
-        GameObject turnSystem = GameObject.Find("BattleManager");
-        turnSystem.GetComponent<BattleManager>().nextTurn();
     }
 
 
@@ -35,7 +33,6 @@ public class EnemyAction : MonoBehaviour {
         if (actionStarted) {
             yield break;
         }
-        actionStarted = true;
         Vector3 targetPosition = new Vector3(target.transform.position.x + 1.0f, target.transform.position.y, target.transform.position.z);
         while (MoveTowardsTarget(targetPosition)) {
             yield return null;
@@ -43,12 +40,16 @@ public class EnemyAction : MonoBehaviour {
         //wait a bit
         yield return new WaitForSeconds(0.5f);
         //do damage
-
+        actionStarted = true;
         //owner attack return to start positon
         Vector3 firstPosition = startPosition;
         while (MoveTowardsTarget(firstPosition)) {
             
             yield return null;
+        }
+        if (actionStarted == true) {
+            GameObject turnSystem = GameObject.Find("BattleManager");
+            turnSystem.GetComponent<BattleManager>().nextTurn();
         }
     }
 
