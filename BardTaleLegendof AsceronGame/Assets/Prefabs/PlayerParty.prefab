@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd957cc35c0d4393b94204e3b72f508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 1498861219635984}
 --- !u!114 &114878740768213026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd957cc35c0d4393b94204e3b72f508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 1911799949189400}
 --- !u!114 &114938454137325036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,12 +151,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextOffset: 0.35
   health: 150
   mana: 10
   attack: 10
   magic: 10
   defense: 10
   speed: 25
+  damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114953466036807200
 MonoBehaviour:
@@ -167,12 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextOffset: 0.35
   health: 100
   mana: 10
   attack: 10
   magic: 10
   defense: 10
   speed: 30
+  damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114970905693528986
 MonoBehaviour:

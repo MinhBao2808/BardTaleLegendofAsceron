@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278694164553078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2083921, y: 0.9032027, z: 89.90505}
+  m_LocalPosition: {x: -3.2083921, y: 0.9032027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4624773487735984}
@@ -136,12 +136,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextOffset: 0.35
   health: 40
   mana: 10
   attack: 5
   magic: 5
   defense: 3
   speed: 1
+  damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114347755402301492
 MonoBehaviour:
@@ -167,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetsTag: PlayerUnit
+  owner: {fileID: 1205838239551336}
 --- !u!114 &114527030374246160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,12 +210,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextOffset: 0.35
   health: 50
   mana: 5
   attack: 6
   magic: 6
   defense: 7
   speed: 3
+  damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114878029389876060
 MonoBehaviour:
@@ -238,6 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetsTag: PlayerUnit
+  owner: {fileID: 1292677176813620}
 --- !u!212 &212269102983252024
 SpriteRenderer:
   m_ObjectHideFlags: 1

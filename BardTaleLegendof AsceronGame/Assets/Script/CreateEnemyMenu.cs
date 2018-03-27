@@ -19,6 +19,7 @@ public class CreateEnemyMenu : MonoBehaviour {
         targetEnemyUnit.transform.localPosition = nextPosition;
         targetEnemyUnit.GetComponent<Button>().onClick.AddListener(() => SelectEnemyTarget());
         targetEnemyUnit.GetComponentsInChildren<Text>()[0].text = "" + targetEnemyUnit.name;
+        killEmenyScript.enemyMenuItem = targetEnemyUnit;
 	}
 
     public void SelectEnemyTarget() {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GetPlayerAction : MonoBehaviour {
     private bool actionStarted = false;
     private Vector3 startPosition;
+    public GameObject owner;
 
 	//private void Start() {
  //       //startPosition = transform.position;
@@ -35,6 +36,7 @@ public class GetPlayerAction : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         //do damage
         actionStarted = true;
+        Hit(target);
         //owner attack return to start positon
         Vector3 firstPosition = startPosition;
         while (MoveTowardsTarget(firstPosition)) {
@@ -45,6 +47,12 @@ public class GetPlayerAction : MonoBehaviour {
             turnSystem.GetComponent<BattleManager>().nextTurn();
         }
 
+    }
+
+    private void Hit (GameObject target) {
+        PlayerStat ownerStat = this.owner.GetComponent<PlayerStat>();
+        PlayerStat targetStat = target.GetComponent<PlayerStat>();
+        targetStat.ReceiveDamage(ownerStat.attack);
     }
 
     private bool MoveTowardsTarget(Vector3 target) {
