@@ -426,6 +426,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114938454137325036, guid: 3b009e91ccafe4f5e838c06f389920c7,
+        type: 2}
+      propertyPath: damageTextOffset
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114953466036807200, guid: 3b009e91ccafe4f5e838c06f389920c7,
+        type: 2}
+      propertyPath: damageTextOffset
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b009e91ccafe4f5e838c06f389920c7, type: 2}
   m_IsPrefabParent: 0

@@ -22,8 +22,9 @@ public class GetPlayerAction : MonoBehaviour {
 
     public void AttackTarget (GameObject target,GameObject player) {
         startPosition = player.gameObject.transform.position;
-        StartCoroutine(TimeForAction(target));
-
+        if (BattleManager.instance.isEnemyTurn() == false) {
+            StartCoroutine(TimeForAction(target));
+        }
     }
 
     IEnumerator TimeForAction(GameObject target)  {

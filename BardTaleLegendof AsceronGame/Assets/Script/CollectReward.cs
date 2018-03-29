@@ -9,5 +9,4 @@ public class CollectReward : MonoBehaviour {
         GameObject battleManager = GameObject.Find("BattleManager");
         battleManager.GetComponent<BattleManager>().enemyEncounter = this.gameObject;
 	}
-	
 }

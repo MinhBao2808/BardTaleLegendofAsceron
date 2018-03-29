@@ -20,12 +20,14 @@ public class ChoosePlayer : MonoBehaviour {
 
     public void SelectCurrentPlayer (GameObject player,PlayerStat currentPlayerStat) {
         this.currentPlayer = player;
+        BattleManager.instance.GetPlayerSelectAttack();
         BattleManager.instance.SetPlayerInfoUI(currentPlayerStat);
         this.actionsMenu.SetActive(true);
         this.enemyUnitsMenu.SetActive(false);
     }
 
     public void SelectAttack () {
+        BattleManager.instance.SetPlayerSelectAttack();
         this.actionsMenu.SetActive(false);
         this.enemyUnitsMenu.SetActive(true);
     }

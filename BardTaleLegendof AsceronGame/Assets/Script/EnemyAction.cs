@@ -26,7 +26,9 @@ public class EnemyAction : MonoBehaviour {
 
     public void Action () {
         GameObject target = FindRandomTarget();
-        StartCoroutine(TimeForAction(target));
+        if (BattleManager.instance.isEnemyTurn() == true) {
+            StartCoroutine(TimeForAction(target));
+        }
     }
 
 

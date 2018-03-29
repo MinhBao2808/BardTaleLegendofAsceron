@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{19AB80EA-BCA0-D4DF-53BD-37B05037AEFE}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/EnemyAction.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BattleManager.cs">
     <Files>
       <File FileName="Assets/Script/EnterGameManager.cs" Line="8" Column="35" />
       <File FileName="Assets/Script/PlayerMovement.cs" Line="7" Column="1" />
       <File FileName="Assets/Script/GameManager.cs" Line="13" Column="37" />
       <File FileName="Assets/Script/StartBattle.cs" Line="11" Column="51" />
-      <File FileName="Assets/Script/PlayerStat.cs" Line="34" Column="30" />
-      <File FileName="Assets/Script/ChoosePlayer.cs" Line="33" Column="46" />
-      <File FileName="Assets/Script/GetPlayerAction.cs" Line="45" Column="37" />
-      <File FileName="Assets/Script/BattleManager.cs" Line="86" Column="19" />
-      <File FileName="Assets/Script/EnemyAction.cs" Line="27" Column="48" />
+      <File FileName="Assets/Script/PlayerStat.cs" Line="29" Column="111" />
+      <File FileName="Assets/Script/ChoosePlayer.cs" Line="30" Column="56" />
+      <File FileName="Assets/Script/GetPlayerAction.cs" Line="27" Column="10" />
+      <File FileName="Assets/Script/BattleManager.cs" Line="10" Column="90" />
+      <File FileName="Assets/Script/EnemyAction.cs" Line="31" Column="10" />
       <File FileName="Assets/Script/KillEmeny.cs" Line="9" Column="37" />
-      <File FileName="Assets/Script/CreateEnemyMenu.cs" Line="22" Column="57" />
-      <File FileName="Assets/Script/AdCallBackButton.cs" Line="10" Column="89" />
-      <File FileName="Assets/Script/CollectReward.cs" Line="12" Column="2" />
+      <File FileName="Assets/Script/CreateEnemyMenu.cs" Line="11" Column="24" />
+      <File FileName="Assets/Script/AdCallBackButton.cs" Line="26" Column="37" />
+      <File FileName="Assets/Script/CollectReward.cs" Line="11" Column="3" />
       <File FileName="Assets/Script/AttackTarget.cs" Line="8" Column="9" />
       <File FileName="Assets/Script/DestroyDamageText.cs" Line="9" Column="52" />
     </Files>

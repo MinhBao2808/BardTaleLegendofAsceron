@@ -125,6 +125,7 @@ MonoBehaviour:
   intialPosition: {x: -337.5072, y: -258.574}
   itemDimensions: {x: 100, y: -20}
   killEmenyScript: {fileID: 114527030374246160}
+  timer: 5
 --- !u!114 &114179233564382500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextOffset: 0.35
+  damageTextOffset: 1.5
   health: 40
   mana: 10
   attack: 5
@@ -199,6 +200,7 @@ MonoBehaviour:
   intialPosition: {x: -337.5072, y: -258.574}
   itemDimensions: {x: 100, y: 0}
   killEmenyScript: {fileID: 114347755402301492}
+  timer: 5
 --- !u!114 &114739843474478164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextOffset: 0.35
+  damageTextOffset: 1.5
   health: 50
   mana: 5
   attack: 6

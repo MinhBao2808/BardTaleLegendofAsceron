@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour, IComparable {
     //public Canvas canvas;
-    public float damageTextOffset = 100f;
+    public float damageTextOffset;
     private bool dead = false;
     public float health;
     public float mana;
@@ -26,7 +26,7 @@ public class PlayerStat : MonoBehaviour, IComparable {
         damageTextObject = Instantiate(this.damageText) as GameObject;
         damageTextObject.transform.SetParent(canvas.transform, false);
         damageTextObject.GetComponent<Text>().text = "" + damage;
-        Vector3 worldPos = new Vector3(transform.position.x + damageTextOffset, transform.position.y + damageTextOffset, transform.position.z);
+        Vector3 worldPos = new Vector3(this.transform.position.x + damageTextOffset, this.transform.position.y, this.transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
         //Debug.Log(screenPos);
         damageTextObject.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class BattleManager : MonoBehaviour {
     public static BattleManager instance = null;
     [SerializeField] private GameObject playerHealthName;//get player health text game object
-    [SerializeField] private GameObject playerManaName;//get player mana text game objec
+    [SerializeField] private GameObject playerManaName;//get player mana text game object
     [SerializeField] private Text playerHealthText;
     [SerializeField] private Text playerManaText;
     //[SerializeField] private GameObject player;
@@ -17,6 +17,8 @@ public class BattleManager : MonoBehaviour {
     //private List<int> unitTurn;
     private GameObject playerParty;
     public GameObject enemyEncounter;
+    private bool enemyTurn = false;
+    private bool playerSelectAttack = false;
 
 	void Awake() {
         if (instance == null) {
@@ -24,7 +26,7 @@ public class BattleManager : MonoBehaviour {
         }	 
 	}
 
-	void Start() {
+    void Start() {
         this.playerParty = GameObject.Find("PlayerParty");
         unitStats = new List<PlayerStat>();
         //unitTurn = new List<int>();
@@ -64,6 +66,10 @@ public class BattleManager : MonoBehaviour {
     }
 
     public void nextTurn() {
+        this.actionsMenu.SetActive(false);
+        this.playerHealthName.SetActive(false);
+        this.playerManaName.SetActive(false);
+        this.enemyUnitsMenu.SetActive(false);
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
         if (remainEnemyUnit.Length == 0) {
             SceneManager.LoadScene(1);
@@ -80,14 +86,31 @@ public class BattleManager : MonoBehaviour {
             unitStats.Add(currentUnitStat);
             //unitStats.Sort();
             if (currentUnit.tag == "PlayerUnit") {
+                enemyTurn = false;
                 this.playerParty.GetComponent<ChoosePlayer>().SelectCurrentPlayer(currentUnit.gameObject,currentUnitStat);
             }
             else {
+                enemyTurn = true;
                 currentUnit.GetComponent<EnemyAction>().Action();
             }
         }
         else {
             this.nextTurn();
         }
+    }
+
+    public bool isEnemyTurn() {
+        return enemyTurn;
+    }
+
+    public void SetPlayerSelectAttack() {
+        playerSelectAttack = true;
+    }
+
+    public bool isPlayerSelectAttack() {
+        return playerSelectAttack;
+    }
+    public void GetPlayerSelectAttack() {
+        playerSelectAttack = false;
     }
 }
