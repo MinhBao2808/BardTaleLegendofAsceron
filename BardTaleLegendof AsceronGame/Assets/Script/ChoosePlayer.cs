@@ -27,13 +27,15 @@ public class ChoosePlayer : MonoBehaviour {
     }
 
     public void SelectAttack () {
-        BattleManager.instance.SetPlayerSelectAttack();
+        
         this.actionsMenu.SetActive(false);
         this.enemyUnitsMenu.SetActive(true);
     }
 
     public void PlayerAttackEnemy (GameObject enemy) {
         BattleManager.instance.SetActivePlayerInfoUI();
+        BattleManager.instance.SetPlayerSelectAttack();
+        BattleManager.instance.SetPlayerAttack();
         this.actionsMenu.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
         this.currentPlayer.GetComponent<GetPlayerAction>().AttackTarget(enemy,currentPlayer);

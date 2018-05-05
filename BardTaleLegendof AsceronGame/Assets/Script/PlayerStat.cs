@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 public class PlayerStat : MonoBehaviour, IComparable {
     //public Canvas canvas;
     public float damageTextOffset;

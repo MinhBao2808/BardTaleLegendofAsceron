@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextOffset: 1.5
-  health: 40
+  health: 100
   mana: 10
   attack: 5
   magic: 5
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextOffset: 1.5
-  health: 50
+  health: 100
   mana: 5
   attack: 6
   magic: 6

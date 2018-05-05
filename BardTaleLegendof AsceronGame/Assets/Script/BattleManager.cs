@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour {
     public static BattleManager instance = null;
     [SerializeField] private GameObject playerHealthName;//get player health text game object
     [SerializeField] private GameObject playerManaName;//get player mana text game object
+    [SerializeField] private GameObject[] enemyEncouterPrefab;
     [SerializeField] private Text playerHealthText;
     [SerializeField] private Text playerManaText;
     //[SerializeField] private GameObject player;
@@ -17,13 +18,20 @@ public class BattleManager : MonoBehaviour {
     //private List<int> unitTurn;
     private GameObject playerParty;
     public GameObject enemyEncounter;
+    public float timer;
+    private float time;
     private bool enemyTurn = false;
     private bool playerSelectAttack = false;
+    private bool playerAttack = false;
 
 	void Awake() {
         if (instance == null) {
             instance = this;
-        }	 
+        }
+        time = timer;
+        playerAttack = false;
+        int index = Random.Range(0, enemyEncouterPrefab.Length);
+        Instantiate(enemyEncouterPrefab[index], enemyEncouterPrefab[index].transform.position, enemyEncouterPrefab[index].transform.rotation);
 	}
 
     void Start() {
@@ -53,6 +61,20 @@ public class BattleManager : MonoBehaviour {
         this.nextTurn();
 	}
 
+    void Update() {
+        if (enemyTurn == false && playerSelectAttack == false) {
+            timer -= Time.deltaTime;
+            Debug.Log(timer);
+            if (timer <= 0.0f) {
+                timer = time;
+                this.nextTurn();
+            }
+        }
+        else if (playerAttack == true && enemyTurn == false) {
+            timer = time;
+        }
+    }
+
     public void SetPlayerInfoUI(PlayerStat currentPlayerStat) {
         playerHealthName.SetActive(true);
         playerManaName.SetActive(true);
@@ -70,13 +92,14 @@ public class BattleManager : MonoBehaviour {
         this.playerHealthName.SetActive(false);
         this.playerManaName.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
+        playerAttack = false;
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
         if (remainEnemyUnit.Length == 0) {
-            SceneManager.LoadScene(1);
+            GameManager.instance.LoadMapScene();
         }
         GameObject[] remainPlayerUnit = GameObject.FindGameObjectsWithTag("PlayerUnit");
         if (remainPlayerUnit.Length == 0) {
-            SceneManager.LoadScene(0);
+            GameManager.instance.LoadGameMenu();
         }
         PlayerStat currentUnitStat = unitStats[0];
         unitStats.Remove(currentUnitStat);
@@ -112,5 +135,15 @@ public class BattleManager : MonoBehaviour {
     }
     public void GetPlayerSelectAttack() {
         playerSelectAttack = false;
+    }
+
+    public bool isPlayerAttack() {
+        return playerAttack;
+    }
+    public void SetPlayerAttack() {
+        playerAttack = true;
+    }
+    public void GetPlayerAttack() {
+        playerAttack = false;
     }
 }

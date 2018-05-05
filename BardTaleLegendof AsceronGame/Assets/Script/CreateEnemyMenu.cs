@@ -8,11 +8,9 @@ public class CreateEnemyMenu : MonoBehaviour {
     [SerializeField] private string menuName;
     [SerializeField] private Vector2 intialPosition, itemDimensions;
     [SerializeField] KillEmeny killEmenyScript;
-    public float timer;
-    private float time;
 
 	void Awake() {
-        time = timer;
+        
         GameObject enemyUnitMenu = GameObject.Find("EnemyUnitMenu");
         GameObject[] itemExist = GameObject.FindGameObjectsWithTag("Enemy");
         Vector2 nextPosition = new Vector2(this.intialPosition.x, this.intialPosition.y + (itemExist.Length * this.itemDimensions.y));
@@ -28,16 +26,5 @@ public class CreateEnemyMenu : MonoBehaviour {
     public void SelectEnemyTarget() {
         GameObject playerPartyData = GameObject.Find("PlayerParty");
         playerPartyData.GetComponent<ChoosePlayer>().PlayerAttackEnemy(this.gameObject);
-    }
-
-    void Update() {
-        if (BattleManager.instance.isEnemyTurn() == false && BattleManager.instance.isPlayerSelectAttack() == true) {
-            timer -= Time.deltaTime;
-            if (timer <= 0.0f) {
-                timer = time;
-                GameObject turnSystem = GameObject.Find("BattleManager");
-                turnSystem.GetComponent<BattleManager>().nextTurn();
-            }
-        }
     }
 }

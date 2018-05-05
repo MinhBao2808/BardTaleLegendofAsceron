@@ -4,22 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager:MonoBehaviour {
-    [SerializeField] private GameObject[] enemyEncouterPrefab;
+    public static GameManager instance = null;
     private int countPlayerMove = 0;
-    private bool spawning = false;
 
-    void Start () {
-        DontDestroyOnLoad(this.gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (scene.name == "BattleScene") {
-            int index = Random.Range(0, enemyEncouterPrefab.Length);
-            Instantiate(enemyEncouterPrefab[index],enemyEncouterPrefab[index].transform.position,enemyEncouterPrefab[index].transform.rotation);
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-            Destroy(this.gameObject);
+    void Awake() {
+        if (instance == null) {
+            instance = this;
         }
+        else if (instance != null) {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
 	public void CountPlayerMovement () {
@@ -27,5 +22,13 @@ public class GameManager:MonoBehaviour {
         if (countPlayerMove >= Random.Range(10,10000)) {
             SceneManager.LoadScene("BattleScene");
         }
+    }
+
+    public void LoadMapScene() {//go to map 
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadGameMenu() {//go to game menu
+        SceneManager.LoadScene(0);
     }
 }

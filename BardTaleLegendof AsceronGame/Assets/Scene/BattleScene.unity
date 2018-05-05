@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &968209757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,11 +536,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthName: {fileID: 193471534}
   playerManaName: {fileID: 193471532}
+  enemyEncouterPrefab:
+  - {fileID: 1278694164553078, guid: 21b3f29f5e4b84516be23ff096d0ae64, type: 2}
+  - {fileID: 1164606008732186, guid: e493bc04fea2548dc8764029bab9a4d4, type: 2}
   playerHealthText: {fileID: 193471533}
   playerManaText: {fileID: 193471531}
   actionsMenu: {fileID: 193471535}
   enemyUnitsMenu: {fileID: 193471530}
   enemyEncounter: {fileID: 0}
+  timer: 5
 --- !u!1 &1675601384
 GameObject:
   m_ObjectHideFlags: 0
