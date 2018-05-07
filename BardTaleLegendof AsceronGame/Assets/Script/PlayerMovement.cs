@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    [SerializeField] private float speed;
+    public static PlayerMovement instance = null;
+	private void Awake() {
+        if (instance == null) {
+            instance = this;
+        }
+        gameObject.transform.position = DataManager.instance.playerPosition;
+	}
+
+	[SerializeField] private float speed;
     private GameManager gameManager = new GameManager();
 
 	void FixedUpdate() {
@@ -34,4 +42,9 @@ public class PlayerMovement : MonoBehaviour {
 
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocityX, newVelocityY);
 	}
+
+    public Vector2 ReturnPlayerPosition() {
+        Vector2 playerPosition = transform.position;
+        return playerPosition;
+    }
 }

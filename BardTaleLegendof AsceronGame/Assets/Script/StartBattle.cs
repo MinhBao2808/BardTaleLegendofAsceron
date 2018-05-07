@@ -9,7 +9,7 @@ public class StartBattle : MonoBehaviour {
 	void Start () {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
 	}
 	
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {

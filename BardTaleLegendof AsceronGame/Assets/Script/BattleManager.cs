@@ -95,6 +95,26 @@ public class BattleManager : MonoBehaviour {
         playerAttack = false;
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
         if (remainEnemyUnit.Length == 0) {
+            GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
+            for (var i = 0; i < playerObject.Length; i++) {
+                if (playerObject[i].gameObject.name == "Player1") {
+                    Debug.Log("a");
+                    DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
+                    DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
+                    DataManager.instance.healthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
+                    DataManager.instance.magicPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
+                    DataManager.instance.manaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
+                    DataManager.instance.speedPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
+                }
+                else if(playerObject[i].gameObject.name == "Player2") {
+                    DataManager.instance.attackPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
+                    DataManager.instance.defensePlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
+                    DataManager.instance.healthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
+                    DataManager.instance.magicPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
+                    DataManager.instance.manaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
+                    DataManager.instance.speedPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
+                }
+            }
             GameManager.instance.LoadMapScene();
         }
         GameObject[] remainPlayerUnit = GameObject.FindGameObjectsWithTag("PlayerUnit");
