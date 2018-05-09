@@ -14,7 +14,7 @@ public class DataManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
     //PlayeerPosition
-    public Vector3 playerPosition = new Vector3();
+	public Vector3 playerPosition = new Vector3();
     //stat player1
     public float healthPlayer1;
     public float manaPlayer1;

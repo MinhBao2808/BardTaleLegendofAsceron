@@ -785,6 +785,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d035b0851d204b83a38f57bbf0fe259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint:
+  - {fileID: 1716372205400404, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1254769129264110, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1154052345725858, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1318492245558676, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1804750485314022, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1137379877524930, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1958198778326736, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1034052251879298, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1359670263513018, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  - {fileID: 1913784152227406, guid: bfcf1687719354d46a6268d249868f57, type: 2}
+  enemyPrefab: {fileID: 1739647042933840, guid: 3a01b32e925c0424fbccbd004a0bb18b,
+    type: 2}
 --- !u!1 &1473943559
 GameObject:
   m_ObjectHideFlags: 0

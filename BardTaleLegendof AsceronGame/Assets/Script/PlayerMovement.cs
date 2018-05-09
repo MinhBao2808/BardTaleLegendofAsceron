@@ -24,20 +24,16 @@ public class PlayerMovement : MonoBehaviour {
         //player movement code
         if (moveHorizontal < 0 && currentVelocity.x <= 0) {
             newVelocityX = -speed;
-            gameManager.CountPlayerMovement();
         }
         else if (moveHorizontal > 0 && currentVelocity.x >= 0) {
-            newVelocityX = speed;
-            gameManager.CountPlayerMovement();
+			newVelocityX = speed;
         }
 
         if (moveVertical < 0 && currentVelocity.y <=0) {
             newVelocityY = -speed;
-            gameManager.CountPlayerMovement();
         }
         else if (moveVertical > 0 && currentVelocity.y >=0) {
             newVelocityY = speed;
-            gameManager.CountPlayerMovement();
         }
 
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocityX, newVelocityY);
