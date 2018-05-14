@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager:MonoBehaviour {
     public static GameManager instance = null;
-	[SerializeField] private GameObject[] spawnPoint;
 	[SerializeField] private GameObject enemyPrefab;
+	//[SerializeField] private AudioClip battleMusic;
+	[SerializeField] private GameObject battleMusic;
     private int countPlayerMove = 0;
     private Vector3 currentPlayerPosition = new Vector3();
 
@@ -27,6 +28,7 @@ public class GameManager:MonoBehaviour {
 	public void GoToBattle () {
         currentPlayerPosition = PlayerMovement.instance.ReturnPlayerPosition();
         DataManager.instance.playerPosition = currentPlayerPosition;
+		//battleMusic.SetActive(true);
 		SceneManager.LoadScene("BattleScene");
     }
 
@@ -41,16 +43,20 @@ public class GameManager:MonoBehaviour {
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		if (scene.name == "MapScene") {
 			SpawnEnemy();
-			SceneManager.sceneLoaded -= OnSceneLoaded;
+			//SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
 
 	private void SpawnEnemy () {
-		for (int i = 0; i < spawnPoint.Length; i++) {
-			int randomPosition = Random.Range(0, spawnPoint.Length - 1);
+		GameObject[] spawnPointObject = GameObject.FindGameObjectsWithTag("SpawnPoint");
+		for (int i = 0; i < spawnPointObject.Length; i++) {
 			//Debug.Log(randomPosition);
-			Instantiate(enemyPrefab, spawnPoint[i].transform.position, spawnPoint[i].transform.rotation);
+			var enemySpawn = Instantiate(enemyPrefab, spawnPointObject[i].transform.position, spawnPointObject[i].transform.rotation);
 		}
+	}
+
+	public void PlayerGoToNewMap() {
+		DataManager.instance.listEnemyDefeatedPosition.Clear();
 	}
 
     //public Vector3 ReturnCurrentPlayerPosition() {

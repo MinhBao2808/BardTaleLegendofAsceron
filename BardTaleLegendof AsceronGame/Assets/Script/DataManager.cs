@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
     }
-    //PlayeerPosition
+    //PlayerPosition
 	public Vector3 playerPosition = new Vector3();
     //stat player1
     public float healthPlayer1;
@@ -29,4 +29,6 @@ public class DataManager : MonoBehaviour {
     public float magicPlayer2;
     public float defensePlayer2;
     public float speedPlayer2;
+    //list enemy defeated position
+	public Queue listEnemyDefeatedPosition = new Queue();
 }

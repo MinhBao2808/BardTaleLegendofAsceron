@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     public static PlayerMovement instance = null;
+	[SerializeField] private Camera mainCamera;
 	private void Awake() {
         if (instance == null) {
             instance = this;
@@ -14,7 +15,19 @@ public class PlayerMovement : MonoBehaviour {
 	[SerializeField] private float speed;
     private GameManager gameManager = new GameManager();
 
+	private void LateUpdate() {
+		UpdateCamera();
+	}
+
+	private void UpdateCamera() {
+		if(mainCamera == null ) {
+			return;
+		}
+		mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -30.0f);
+	}
+
 	void FixedUpdate() {
+		//Debug.Log(transform.position);
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector2 currentVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;

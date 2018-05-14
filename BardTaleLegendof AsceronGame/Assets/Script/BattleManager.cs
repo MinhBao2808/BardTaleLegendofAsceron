@@ -97,8 +97,7 @@ public class BattleManager : MonoBehaviour {
         if (remainEnemyUnit.Length == 0) {
             GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
             for (var i = 0; i < playerObject.Length; i++) {
-                if (playerObject[i].gameObject.name == "Player1") {
-                    Debug.Log("a");
+				if (playerObject[i].gameObject.name == "Player1") {
                     DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
                     DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
                     DataManager.instance.healthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
