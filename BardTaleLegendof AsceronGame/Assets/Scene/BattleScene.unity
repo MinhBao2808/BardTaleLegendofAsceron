@@ -245,6 +245,17 @@ GameObject:
   m_PrefabParentObject: {fileID: 1671307400409428, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
     type: 2}
   m_PrefabInternal: {fileID: 193471529}
+--- !u!1 &193471536 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1336940667207148, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+    type: 2}
+  m_PrefabInternal: {fileID: 193471529}
+--- !u!114 &193471537 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114339375393606388, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+    type: 2}
+  m_PrefabInternal: {fileID: 193471529}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &328262766
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +550,8 @@ MonoBehaviour:
   enemyEncouterPrefab:
   - {fileID: 1278694164553078, guid: 21b3f29f5e4b84516be23ff096d0ae64, type: 2}
   - {fileID: 1164606008732186, guid: e493bc04fea2548dc8764029bab9a4d4, type: 2}
+  playerAvatar: {fileID: 193471536}
+  playerAvatarImage: {fileID: 193471537}
   playerHealthText: {fileID: 193471533}
   playerManaText: {fileID: 193471531}
   actionsMenu: {fileID: 193471535}

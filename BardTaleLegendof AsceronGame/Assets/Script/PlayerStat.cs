@@ -8,9 +8,12 @@ using UnityEngine.UI;
 public class PlayerStat : MonoBehaviour, IComparable {
     //public Canvas canvas;
     public float damageTextOffset;
+	public Sprite playerAvatar;
     private bool dead = false;
     public float health;
+	public float maxHealth;
     public float mana;
+	public float maxMana;
     public float attack;
     public float magic;
     public float defense;

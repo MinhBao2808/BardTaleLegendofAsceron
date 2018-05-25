@@ -36,9 +36,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4872932079382842}
-  - component: {fileID: 212962900603596256}
   - component: {fileID: 114100952484482376}
   - component: {fileID: 114953466036807200}
+  - component: {fileID: 212677163687548092}
   m_Layer: 0
   m_Name: Player1
   m_TagString: PlayerUnit
@@ -54,9 +54,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4042642362565384}
-  - component: {fileID: 212900615617700988}
   - component: {fileID: 114878740768213026}
   - component: {fileID: 114938454137325036}
+  - component: {fileID: 212247311513102508}
   m_Layer: 0
   m_Name: Player2
   m_TagString: PlayerUnit
@@ -71,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1911799949189400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.25, y: 1.35, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 2.2, y: 2.9, z: 0}
+  m_LocalScale: {x: 1.2014828, y: 1.1658165, z: 1}
   m_Children: []
   m_Father: {fileID: 4832532769079738}
   m_RootOrder: 1
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1397544835869252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.49, y: -1.48, z: 0}
+  m_LocalPosition: {x: -5.49, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4872932079382842}
@@ -99,8 +99,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1498861219635984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 0.23, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1.0997543, y: 0.9956079, z: 1}
   m_Children: []
   m_Father: {fileID: 4832532769079738}
   m_RootOrder: 0
@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextOffset: 0.35
+  damageTextOffset: 1.5
+  playerAvatar: {fileID: 21300170, guid: 75e52f9886ce647848b887f5734d99ee, type: 3}
   health: 150
+  maxHealth: 0
   mana: 10
+  maxMana: 0
   attack: 10
   magic: 10
   defense: 10
@@ -171,9 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextOffset: 0.35
+  damageTextOffset: 1.5
+  playerAvatar: {fileID: 21300150, guid: 75e52f9886ce647848b887f5734d99ee, type: 3}
   health: 100
+  maxHealth: 0
   mana: 10
+  maxMana: 0
   attack: 10
   magic: 10
   defense: 10
@@ -191,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab493045a4df2485d823f5f209e7d3cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &212900615617700988
+--- !u!212 &212247311513102508
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -225,17 +231,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.14827585, b: 0.14827585, a: 1}
+  m_Sprite: {fileID: 21300170, guid: 75e52f9886ce647848b887f5734d99ee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.4333333, y: 2.3666666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!212 &212962900603596256
+--- !u!212 &212677163687548092
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -269,12 +275,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.08620691, b: 0.08620691, a: 1}
+  m_Sprite: {fileID: 21300150, guid: 75e52f9886ce647848b887f5734d99ee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.9333333, y: 2.4666667}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

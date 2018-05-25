@@ -28,12 +28,13 @@ public class GameManager:MonoBehaviour {
 	public void GoToBattle () {
         currentPlayerPosition = PlayerMovement.instance.ReturnPlayerPosition();
         DataManager.instance.playerPosition = currentPlayerPosition;
-		//battleMusic.SetActive(true);
+		battleMusic.SetActive(true);
 		SceneManager.LoadScene("BattleScene");
     }
 
     public void LoadMapScene() {//go to map 
         SceneManager.LoadScene(1);
+		battleMusic.SetActive(false);
     }
 
     public void LoadGameMenu() {//go to game menu

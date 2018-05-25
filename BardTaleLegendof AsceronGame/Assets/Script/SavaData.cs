@@ -10,7 +10,9 @@ public class SaveData {
     public float zPlayerPosition;
     //stat player1
     public float healthPlayer1;
+	public float maxHealthPlayer1;
     public float manaPlayer1;
+	public float maxManaPlayer1;
     public float attackPlayer1;
     public float magicPlayer1;
     public float defensePlayer1;

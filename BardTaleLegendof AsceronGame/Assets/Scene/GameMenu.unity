@@ -396,7 +396,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832532769079738, guid: 3b009e91ccafe4f5e838c06f389920c7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4832532769079738, guid: 3b009e91ccafe4f5e838c06f389920c7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -421,16 +421,6 @@ Prefab:
     - target: {fileID: 4832532769079738, guid: 3b009e91ccafe4f5e838c06f389920c7, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114938454137325036, guid: 3b009e91ccafe4f5e838c06f389920c7,
-        type: 2}
-      propertyPath: damageTextOffset
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114953466036807200, guid: 3b009e91ccafe4f5e838c06f389920c7,
-        type: 2}
-      propertyPath: damageTextOffset
-      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b009e91ccafe4f5e838c06f389920c7, type: 2}
@@ -620,13 +610,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {x: 0, y: 0, z: 0}
   healthPlayer1: 0
+  maxHealthPlayer1: 0
   manaPlayer1: 0
+  maxManaPlayer1: 0
   attackPlayer1: 0
   magicPlayer1: 0
   defensePlayer1: 0
   speedPlayer1: 0
   healthPlayer2: 0
+  maxHealthPlayer2: 0
   manaPlayer2: 0
+  maxManaPlayer2: 0
   attackPlayer2: 0
   magicPlayer2: 0
   defensePlayer2: 0

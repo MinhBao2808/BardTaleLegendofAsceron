@@ -9,6 +9,8 @@ public class BattleManager : MonoBehaviour {
     [SerializeField] private GameObject playerHealthName;//get player health text game object
     [SerializeField] private GameObject playerManaName;//get player mana text game object
     [SerializeField] private GameObject[] enemyEncouterPrefab;
+	[SerializeField] private GameObject playerAvatar;
+	[SerializeField] private Image playerAvatarImage;
     [SerializeField] private Text playerHealthText;
     [SerializeField] private Text playerManaText;
     //[SerializeField] private GameObject player;
@@ -56,6 +58,7 @@ public class BattleManager : MonoBehaviour {
         unitStats.Sort();
         this.actionsMenu.SetActive(false);
         this.playerHealthName.SetActive(false);
+		this.playerAvatar.SetActive(false);
         this.playerManaName.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
         this.nextTurn();
@@ -78,6 +81,8 @@ public class BattleManager : MonoBehaviour {
     public void SetPlayerInfoUI(PlayerStat currentPlayerStat) {
         playerHealthName.SetActive(true);
         playerManaName.SetActive(true);
+		playerAvatar.SetActive(true);
+		playerAvatarImage.overrideSprite = currentPlayerStat.playerAvatar;
         playerHealthText.text = "" + currentPlayerStat.health;
         playerManaText.text = "" + currentPlayerStat.mana;
     }
@@ -90,6 +95,7 @@ public class BattleManager : MonoBehaviour {
     public void nextTurn() {
         this.actionsMenu.SetActive(false);
         this.playerHealthName.SetActive(false);
+		this.playerAvatar.SetActive(false);
         this.playerManaName.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
         playerAttack = false;
@@ -98,6 +104,8 @@ public class BattleManager : MonoBehaviour {
             GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
             for (var i = 0; i < playerObject.Length; i++) {
 				if (playerObject[i].gameObject.name == "Player1") {
+					DataManager.instance.maxHealthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					DataManager.instance.maxManaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
                     DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
                     DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
                     DataManager.instance.healthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
@@ -106,6 +114,8 @@ public class BattleManager : MonoBehaviour {
                     DataManager.instance.speedPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
                 }
                 else if(playerObject[i].gameObject.name == "Player2") {
+					DataManager.instance.maxHealthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					DataManager.instance.maxManaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxMana;
                     DataManager.instance.attackPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
                     DataManager.instance.defensePlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
                     DataManager.instance.healthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
