@@ -24,4 +24,6 @@ public class SaveData {
     public float magicPlayer2;
     public float defensePlayer2;
     public float speedPlayer2;
+	//game difficulty
+	public Level gameLevel;
 }

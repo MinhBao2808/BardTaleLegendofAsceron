@@ -41,6 +41,7 @@ public class SaveLoad: MonoBehaviour {
                 }
             }
             DataManager.instance.playerPosition = new Vector3(save.xPlayerPosition, save.yPlayerPosition, save.zPlayerPosition);
+			GameManager.instance.level = save.gameLevel;
             GameManager.instance.LoadMapScene();
             Debug.Log(DataManager.instance.playerPosition);
         }
@@ -64,6 +65,7 @@ public class SaveLoad: MonoBehaviour {
         saveData.manaPlayer2 = DataManager.instance.manaPlayer2;
         saveData.speedPlayer1 = DataManager.instance.speedPlayer1;
         saveData.speedPlayer2 = DataManager.instance.speedPlayer2;
+		saveData.gameLevel = DataManager.instance.gameLevel;
         return saveData;
     }
 }

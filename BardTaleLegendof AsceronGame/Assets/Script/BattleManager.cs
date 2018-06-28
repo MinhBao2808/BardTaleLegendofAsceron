@@ -30,7 +30,20 @@ public class BattleManager : MonoBehaviour {
         if (instance == null) {
             instance = this;
         }
+		if (GameManager.instance.level == Level.Passive) {
+			timer = 30.0f;
+		}
+		if (GameManager.instance.level == Level.Normal) {
+			timer = 20.0f;
+		}
+		if (GameManager.instance.level == Level.Aggressive) {
+			timer = 10.0f;
+		}
+		if (GameManager.instance.level == Level.Nightmare) {
+			timer = 5.0f;
+		}
         time = timer;
+		Debug.Log(time);
         playerAttack = false;
         int index = Random.Range(0, enemyEncouterPrefab.Length);
         Instantiate(enemyEncouterPrefab[index], enemyEncouterPrefab[index].transform.position, enemyEncouterPrefab[index].transform.rotation);
@@ -65,17 +78,17 @@ public class BattleManager : MonoBehaviour {
 	}
 
     void Update() {
-        if (enemyTurn == false && playerSelectAttack == false) {
-            timer -= Time.deltaTime;
-            Debug.Log(timer);
-            if (timer <= 0.0f) {
-                timer = time;
-                this.nextTurn();
-            }
-        }
-        else if (playerAttack == true && enemyTurn == false) {
-            timer = time;
-        }
+   //     if (enemyTurn == false && playerSelectAttack == false) {
+			//time -= Time.deltaTime;
+    //        Debug.Log(time);
+    //        if (time <= 0.0f) {
+				//time = timer;
+        //        this.nextTurn();
+        //    }
+        //}
+        //else if (playerAttack == true && enemyTurn == false) {
+        //    time = timer;
+        //}
     }
 
     public void SetPlayerInfoUI(PlayerStat currentPlayerStat) {

@@ -3,13 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum Level {
+	Passive,
+	Normal,
+	Aggressive,
+	Nightmare
+}
+
 public class GameManager:MonoBehaviour {
     public static GameManager instance = null;
 	[SerializeField] private GameObject enemyPrefab;
 	//[SerializeField] private AudioClip battleMusic;
 	[SerializeField] private GameObject battleMusic;
+	[SerializeField] private GameObject[] buttonDifficultys;//store object button choose difficulty
+	[SerializeField] private GameObject[] buttonCommands;//store object button choose command in game menu
     private int countPlayerMove = 0;
     private Vector3 currentPlayerPosition = new Vector3();
+	public Level level;
 
     void Awake() {
         if (instance == null) {
@@ -32,11 +42,45 @@ public class GameManager:MonoBehaviour {
 		SceneManager.LoadScene("BattleScene");
     }
 
-    public void LoadMapScene() {//go to map 
-        SceneManager.LoadScene(1);
+	public void LoadDifficultys() {//go to map 
+	 //SceneManager.LoadScene(1);
+		for (int i = 0; i < buttonCommands.Length; i++) {
+			buttonCommands[i].SetActive(false);
+		}
+		for (int i = 0; i < buttonDifficultys.Length; i++) {
+			buttonDifficultys[i].SetActive(true);
+		}
 		battleMusic.SetActive(false);
-    }
+	}
 
+	public void LoadMapScene() {
+		SceneManager.LoadScene(1);
+	}
+
+	public void ChoosePassiveDifficulty() {//choose passive difficultys
+		level = Level.Passive;
+		DataManager.instance.gameLevel = level;
+		SceneManager.LoadScene(1);
+	}
+
+	public void ChooseNormalDifficulty() {//choose normal difficulty
+		level = Level.Normal;
+		DataManager.instance.gameLevel = level;
+		SceneManager.LoadScene(1);
+	}
+
+	public void ChooseAggressiveDifficulty() {//choose aggressive difficulty
+		level = Level.Aggressive;
+		DataManager.instance.gameLevel = level;
+		SceneManager.LoadScene(1);
+	}
+
+	public void ChooseNightmareDifficulty () {//choose nightmare difficulty
+		level = Level.Nightmare;
+		DataManager.instance.gameLevel = level;
+		SceneManager.LoadScene(1);
+	}
+   
     public void LoadGameMenu() {//go to game menu
         SceneManager.LoadScene(0);
     }

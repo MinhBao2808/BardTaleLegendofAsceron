@@ -35,4 +35,6 @@ public class DataManager : MonoBehaviour {
     public float speedPlayer2;
     //list enemy defeated position
 	public Queue listEnemyDefeatedPosition = new Queue();
+	//game difficulty
+	public Level gameLevel;
 }
