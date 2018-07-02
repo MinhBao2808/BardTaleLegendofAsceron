@@ -15,7 +15,9 @@ public class DataManager : MonoBehaviour {
     }
     //PlayerPosition
 	public Vector3 playerPosition = new Vector3();
-    //stat player1
+	//stat player1
+	public float levelPlayer1;
+	public float currentExpPlayer1;
     public float healthPlayer1;
 	public float maxHealthPlayer1;
     public float manaPlayer1;
@@ -24,7 +26,9 @@ public class DataManager : MonoBehaviour {
     public float magicPlayer1;
     public float defensePlayer1;
     public float speedPlayer1;
-    //stat player2
+	//stat player2
+	public float levelPlayer2;
+	public float currentExpPlayer2;
     public float healthPlayer2;
 	public float maxHealthPlayer2;
     public float manaPlayer2;

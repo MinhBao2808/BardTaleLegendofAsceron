@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 [System.Serializable]
 public class PlayerStat : MonoBehaviour, IComparable {
-    //public Canvas canvas;
+	//public Canvas canvas;
+	public float playerLv;
     public float damageTextOffset;
 	public Sprite playerAvatar;
     private bool dead = false;
@@ -18,8 +19,11 @@ public class PlayerStat : MonoBehaviour, IComparable {
     public float magic;
     public float defense;
     public float speed;
+	public float currentExp;
+	public float expPoints;
     private GameObject damageTextObject;
     [SerializeField] private GameObject damageText;
+    
 
     public int nextActTurn;
     Vector3 offset = Vector3.zero;
@@ -53,4 +57,12 @@ public class PlayerStat : MonoBehaviour, IComparable {
     public bool isDead() {
         return this.dead;
     }
+
+	public void calculateExp (float exp) {
+		currentExp = currentExp + exp;
+		if (currentExp >= Expression.GetExpExpression(playerLv)) {
+			playerLv = playerLv + 1;
+			currentExp = 0.0f;
+		}
+	}
 }
