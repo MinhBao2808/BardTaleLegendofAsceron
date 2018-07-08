@@ -148,7 +148,7 @@ MonoBehaviour:
   defense: 3
   speed: 1
   currentExp: 0
-  expPoints: 5
+  expPoints: 50
   damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114347755402301492
@@ -228,7 +228,7 @@ MonoBehaviour:
   defense: 7
   speed: 3
   currentExp: 0
-  expPoints: 5
+  expPoints: 50
   damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114878029389876060
