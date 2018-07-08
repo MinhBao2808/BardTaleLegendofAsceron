@@ -25,12 +25,26 @@ public class BattleManager : MonoBehaviour {
     private bool enemyTurn = false;
     private bool playerSelectAttack = false;
     private bool playerAttack = false;
+	private float sumExpCanGet = 0.0f;
 
 	void Awake() {
         if (instance == null) {
             instance = this;
         }
+		if (GameManager.instance.level == Level.Passive) {
+			timer = 30.0f;
+		}
+		if (GameManager.instance.level == Level.Normal) {
+			timer = 20.0f;
+		}
+		if (GameManager.instance.level == Level.Aggressive) {
+			timer = 10.0f;
+		}
+		if (GameManager.instance.level == Level.Nightmare) {
+			timer = 5.0f;
+		}
         time = timer;
+		Debug.Log(time);
         playerAttack = false;
         int index = Random.Range(0, enemyEncouterPrefab.Length);
         Instantiate(enemyEncouterPrefab[index], enemyEncouterPrefab[index].transform.position, enemyEncouterPrefab[index].transform.rotation);
@@ -52,6 +66,7 @@ public class BattleManager : MonoBehaviour {
             PlayerStat currentStat = enemy.GetComponent<PlayerStat>();
             currentStat.CalculateNextTurn(0);
             unitStats.Add(currentStat);
+			sumExpCanGet = sumExpCanGet + currentStat.expPoints;
             //unitTurn.Add(currentStat.nextActTurn);
         }
         //unitTurn.Sort();
@@ -66,15 +81,15 @@ public class BattleManager : MonoBehaviour {
 
     void Update() {
         if (enemyTurn == false && playerSelectAttack == false) {
-            timer -= Time.deltaTime;
-            Debug.Log(timer);
-            if (timer <= 0.0f) {
-                timer = time;
+			time -= Time.deltaTime;
+            Debug.Log(time);
+            if (time <= 0.0f) {
+				time = timer;
                 this.nextTurn();
             }
         }
         else if (playerAttack == true && enemyTurn == false) {
-            timer = time;
+            time = timer;
         }
     }
 
@@ -100,11 +115,15 @@ public class BattleManager : MonoBehaviour {
         this.enemyUnitsMenu.SetActive(false);
         playerAttack = false;
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
+        
         if (remainEnemyUnit.Length == 0) {
             GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
             for (var i = 0; i < playerObject.Length; i++) {
 				if (playerObject[i].gameObject.name == "Player1") {
+					playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
 					DataManager.instance.maxHealthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					DataManager.instance.currentExpPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
+					DataManager.instance.levelPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
 					DataManager.instance.maxManaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
                     DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
                     DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
@@ -114,7 +133,10 @@ public class BattleManager : MonoBehaviour {
                     DataManager.instance.speedPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
                 }
                 else if(playerObject[i].gameObject.name == "Player2") {
+					playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
 					DataManager.instance.maxHealthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					DataManager.instance.currentExpPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
+					DataManager.instance.levelPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
 					DataManager.instance.maxManaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxMana;
                     DataManager.instance.attackPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
                     DataManager.instance.defensePlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;

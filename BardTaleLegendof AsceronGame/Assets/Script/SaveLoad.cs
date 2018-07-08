@@ -30,6 +30,8 @@ public class SaveLoad: MonoBehaviour {
                     playerObject[i].gameObject.GetComponent<PlayerStat>().magic = save.magicPlayer1;
                     playerObject[i].gameObject.GetComponent<PlayerStat>().mana = save.manaPlayer1;
                     playerObject[i].gameObject.GetComponent<PlayerStat>().speed = save.speedPlayer1;
+					playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp = save.currentExpPlayer1;
+					playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv = save.levelPlayer1;
                 }
                 else if (playerObject[i].gameObject.name == "Player2") {
                     playerObject[i].gameObject.GetComponent<PlayerStat>().attack = save.attackPlayer2;
@@ -38,9 +40,12 @@ public class SaveLoad: MonoBehaviour {
                     playerObject[i].gameObject.GetComponent<PlayerStat>().magic = save.magicPlayer2;
                     playerObject[i].gameObject.GetComponent<PlayerStat>().mana = save.manaPlayer2;
                     playerObject[i].gameObject.GetComponent<PlayerStat>().speed = save.speedPlayer2;
+					playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp = save.currentExpPlayer2;
+					playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv = save.levelPlayer2;
                 }
             }
             DataManager.instance.playerPosition = new Vector3(save.xPlayerPosition, save.yPlayerPosition, save.zPlayerPosition);
+			GameManager.instance.level = save.gameLevel;
             GameManager.instance.LoadMapScene();
             Debug.Log(DataManager.instance.playerPosition);
         }
@@ -64,6 +69,11 @@ public class SaveLoad: MonoBehaviour {
         saveData.manaPlayer2 = DataManager.instance.manaPlayer2;
         saveData.speedPlayer1 = DataManager.instance.speedPlayer1;
         saveData.speedPlayer2 = DataManager.instance.speedPlayer2;
+		saveData.currentExpPlayer1 = DataManager.instance.currentExpPlayer1;
+		saveData.currentExpPlayer2 = DataManager.instance.currentExpPlayer2;
+		saveData.levelPlayer1 = DataManager.instance.levelPlayer1;
+		saveData.levelPlayer2 = DataManager.instance.levelPlayer2;
+		saveData.gameLevel = DataManager.instance.gameLevel;
         return saveData;
     }
 }

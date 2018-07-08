@@ -136,13 +136,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLv: 0
   damageTextOffset: 1.5
+  playerAvatar: {fileID: 0}
   health: 10
+  maxHealth: 0
   mana: 10
+  maxMana: 0
   attack: 5
   magic: 5
   defense: 3
   speed: 1
+  currentExp: 0
+  expPoints: 50
   damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114347755402301492
@@ -210,13 +216,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94da35b90c8424c68ad33f19e91cf53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLv: 0
   damageTextOffset: 1.5
+  playerAvatar: {fileID: 0}
   health: 10
+  maxHealth: 0
   mana: 5
+  maxMana: 0
   attack: 6
   magic: 6
   defense: 7
   speed: 3
+  currentExp: 0
+  expPoints: 50
   damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
   nextActTurn: 1
 --- !u!114 &114878029389876060
@@ -257,6 +269,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -301,6 +314,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
