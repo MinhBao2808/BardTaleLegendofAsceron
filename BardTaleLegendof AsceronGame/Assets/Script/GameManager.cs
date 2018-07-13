@@ -15,8 +15,8 @@ public class GameManager:MonoBehaviour {
 	[SerializeField] private GameObject enemyPrefab;
 	//[SerializeField] private AudioClip battleMusic;
 	[SerializeField] private GameObject battleMusic;
-	[SerializeField] private GameObject[] buttonDifficultys;//store object button choose difficulty
-	[SerializeField] private GameObject[] buttonCommands;//store object button choose command in game menu
+	[SerializeField] private GameObject gameLevelPanel;
+	[SerializeField] private GameObject menuPanel; 
     private int countPlayerMove = 0;
     private Vector3 currentPlayerPosition = new Vector3();
 	public Level level;
@@ -43,17 +43,14 @@ public class GameManager:MonoBehaviour {
     }
 
 	public void LoadDifficultys() {//go to map 
-	 //SceneManager.LoadScene(1);
-		for (int i = 0; i < buttonCommands.Length; i++) {
-			buttonCommands[i].SetActive(false);
-		}
-		for (int i = 0; i < buttonDifficultys.Length; i++) {
-			buttonDifficultys[i].SetActive(true);
-		}
-		battleMusic.SetActive(false);
+								   //SceneManager.LoadScene(1);
+		menuPanel.SetActive(false);
+		gameLevelPanel.SetActive(true);
+		//battleMusic.SetActive(false);
 	}
 
 	public void LoadMapScene() {
+		battleMusic.SetActive(false);
 		SceneManager.LoadScene(1);
 	}
 

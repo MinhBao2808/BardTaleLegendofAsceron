@@ -15,7 +15,7 @@ public class GameSkillController : MonoBehaviour {
         jsonString = File.ReadAllText(path);
         skillArray  = JsonUtility.FromJson<GameSkillArray>(jsonString);
         foreach (var gameskill in skillArray.gameSkill) {
-            Debug.Log(gameskill.Name);
+            //Debug.Log(gameskill.Name);
         }
     }
 

@@ -177,7 +177,7 @@ public class BattleManager : MonoBehaviour {
         return enemyTurn;
     }
 
-    public void SetPlayerSelectAttack() {
+    public void SetPlayerSelectAttack() {//player choose attack enemy 
         playerSelectAttack = true;
     }
 

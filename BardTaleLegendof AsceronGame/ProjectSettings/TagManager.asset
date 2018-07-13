@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - DeadUnit
   - SpawnPoint
+  - ChooseEnemyButton
   layers:
   - Default
   - TransparentFX
