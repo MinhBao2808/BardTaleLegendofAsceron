@@ -16,7 +16,9 @@ public class GameManager:MonoBehaviour {
 	//[SerializeField] private AudioClip battleMusic;
 	[SerializeField] private GameObject battleMusic;
 	[SerializeField] private GameObject gameLevelPanel;
-	[SerializeField] private GameObject menuPanel; 
+	[SerializeField] private GameObject menuPanel;
+	[SerializeField] private GameObject creditPanel;
+	[SerializeField] private Animator creditAnimator;
     private int countPlayerMove = 0;
     private Vector3 currentPlayerPosition = new Vector3();
 	public Level level;
@@ -45,8 +47,22 @@ public class GameManager:MonoBehaviour {
 	public void LoadDifficultys() {//go to map 
 								   //SceneManager.LoadScene(1);
 		menuPanel.SetActive(false);
+		creditPanel.SetActive(false);
 		gameLevelPanel.SetActive(true);
 		//battleMusic.SetActive(false);
+	}
+
+	public void LoadCreditPanel() {
+		creditPanel.SetActive(true);
+		gameLevelPanel.SetActive(false);
+		menuPanel.SetActive(false);
+		creditAnimator.Play("creditScoller");
+	}
+
+	public void LoadMenuPanel() {
+		creditPanel.SetActive(false);
+		gameLevelPanel.SetActive(false);
+		menuPanel.SetActive(true);
 	}
 
 	public void LoadMapScene() {
