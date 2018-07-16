@@ -1,0 +1,14 @@
+{
+	"gameSkill":[
+		{
+			"Name": "Yumo",
+			"Level": 7,
+			"Stats": [4,7]
+		},
+		{
+			"Name":"Gigi",
+			"Level": 8,
+			"Stats": [6,7]
+		}
+	]
+}
