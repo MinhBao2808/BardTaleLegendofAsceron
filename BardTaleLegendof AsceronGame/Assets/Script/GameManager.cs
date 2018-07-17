@@ -23,6 +23,7 @@ public class GameManager:MonoBehaviour {
 	[SerializeField] private GameObject settingPanel;
 	[SerializeField] private Animator creditAnimator;
 	[SerializeField] private Dropdown dropdownResolution;
+	[SerializeField] private Button changeFullScreenToWindows;
     private int countPlayerMove = 0;
     private Vector3 currentPlayerPosition = new Vector3();
 	public Level level;
@@ -230,8 +231,11 @@ public class GameManager:MonoBehaviour {
                 }
             }
 
-            if (!found)
-                SetResolution(FullscreenResolutions.Count - 1, true);
+			if (!found) {
+				SetResolution(FullscreenResolutions.Count - 1, true);
+			}
+			dropdownResolution.value = currFullscreenRes;
+			changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
         }
         else {
             currFullscreenRes = FullscreenResolutions.Count - 1;
@@ -244,8 +248,11 @@ public class GameManager:MonoBehaviour {
                 }
             }
 
-            if (!found)
-                SetResolution(WindowedResolutions.Count - 1, false);
+			if (!found) {
+				SetResolution(WindowedResolutions.Count - 1, false);
+			}
+			dropdownResolution.value = currWindowedRes;
+			changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
         }
     }
 
@@ -304,4 +311,15 @@ public class GameManager:MonoBehaviour {
             Screen.fullScreen ? currWindowedRes : currFullscreenRes,
             !Screen.fullScreen);
     }
+
+	private void OnGUI() {
+		if (Screen.fullScreen)
+        {
+            changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
+        }
+        else
+        {
+            changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
+        }
+	}
 }

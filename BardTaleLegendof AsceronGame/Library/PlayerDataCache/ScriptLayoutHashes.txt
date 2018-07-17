@@ -129,7 +129,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChoosePlayer
 d0dded66b4790932f283ce432d298e3b Assembly-CSharp.dll:.DestroyDamageText
 6bab01496d84b3362256c052524eb0f3 Assembly-CSharp.dll:.KillEmeny
-df3a5a8b4df1d19ebfa9084ab9d1abc5 Assembly-CSharp.dll:.GameManager
+c52c6620c03c767da392d7ad6e449d28 Assembly-CSharp.dll:.GameManager
 da6e1060b61cc0142b8a1b308b57ce5e Assembly-CSharp.dll:.CreateEnemyMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SaveLoad
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
