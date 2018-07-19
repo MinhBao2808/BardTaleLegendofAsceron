@@ -173,3 +173,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 d9a0e5b81f8790744e5d8c0395b96180 Assembly-CSharp.dll:.PixelDensityCamera
 5e919bcfc2e72ccbbc429d75a2e51d2f Assembly-CSharp.dll:.PlayerMovement
 71f019dc95e0ce22cae6cd1784215c45 Assembly-CSharp.dll:.GetPlayerAction
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.AspectUtility

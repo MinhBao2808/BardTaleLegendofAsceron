@@ -24,7 +24,11 @@ public class GameManager:MonoBehaviour {
 	[SerializeField] private Animator creditAnimator;
 	[SerializeField] private Dropdown dropdownResolution;
 	[SerializeField] private Button changeFullScreenToWindows;
+	[SerializeField] private GameObject loadFileSavePanel;
+	[SerializeField] private GameObject loadButtonPrefabs;
     private int countPlayerMove = 0;
+	public int[] arrayOfSave = new int[10];
+	public int index;//store index of save file
     private Vector3 currentPlayerPosition = new Vector3();
 	public Level level;
 	// Fixed aspect ratio parameters
@@ -51,6 +55,7 @@ public class GameManager:MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+		index = PlayerPrefs.GetInt("c");
     }
 
 	private void Start() {
@@ -71,6 +76,7 @@ public class GameManager:MonoBehaviour {
 		creditPanel.SetActive(false);
 		settingPanel.SetActive(false);
 		gameLevelPanel.SetActive(true);
+		loadFileSavePanel.SetActive(false);
 		//battleMusic.SetActive(false);
 	}
 
@@ -79,6 +85,7 @@ public class GameManager:MonoBehaviour {
 		gameLevelPanel.SetActive(false);
 		menuPanel.SetActive(false);
 		settingPanel.SetActive(false);
+		loadFileSavePanel.SetActive(false);
 		creditAnimator.Play("creditScoller");
 	}
 
@@ -86,6 +93,7 @@ public class GameManager:MonoBehaviour {
 		settingPanel.SetActive(true);
 		gameLevelPanel.SetActive(false);
 		menuPanel.SetActive(false);
+		loadFileSavePanel.SetActive(false);
 		creditPanel.SetActive(false);
 	}
 
@@ -93,11 +101,21 @@ public class GameManager:MonoBehaviour {
 		creditPanel.SetActive(false);
 		gameLevelPanel.SetActive(false);
 		settingPanel.SetActive(false);
+		loadFileSavePanel.SetActive(false);
 		menuPanel.SetActive(true);
 	}
 
+	public void LoadLoadGamePanel() {
+		loadFileSavePanel.SetActive(true);
+		menuPanel.SetActive(false);
+		settingPanel.SetActive(false);
+		creditPanel.SetActive(false);
+		gameLevelPanel.SetActive(false);
+		SaveLoad.LoadMultipleFiles(loadButtonPrefabs,arrayOfSave);
+	}
+
 	public void ChangeResolution(int index) {
-		Debug.Log(index);
+		//Debug.Log(index);
 		SetResolution(index, Screen.fullScreen);
 	}
 
@@ -172,7 +190,6 @@ public class GameManager:MonoBehaviour {
                 yield return null;
 
                 DisplayResolution = Screen.currentResolution;
-                Debug.Log(4);
 
                 Screen.SetResolution(r.width, r.height, true);
 
@@ -285,19 +302,15 @@ public class GameManager:MonoBehaviour {
     private IEnumerator SetResolutionAfterResize(Vector2 r) {
         int maxTime = 5; // Max wait for the end of the resize transition
         float time = Time.time;
-
         // Skipping a couple of frames during which the screen size will change
         yield return null;
         yield return null;
-
         int lastW = Screen.width;
         int lastH = Screen.height;
-
         // Waiting for another screen size change at the end of the transition animation
         while (Time.time - time < maxTime) {
             if (lastW != Screen.width || lastH != Screen.height) {
-                Debug.Log("Resize! " + Screen.width + "x" + Screen.height);
-
+				Debug.Log("Resize! " + Screen.width + "x" + Screen.height);
                 Screen.SetResolution((int)r.x, (int)r.y, Screen.fullScreen);
                 yield break;
             }
@@ -307,18 +320,14 @@ public class GameManager:MonoBehaviour {
     }
 
     public void ToggleFullscreen() {
-        SetResolution(
-            Screen.fullScreen ? currWindowedRes : currFullscreenRes,
-            !Screen.fullScreen);
+        SetResolution(Screen.fullScreen ? currWindowedRes : currFullscreenRes,!Screen.fullScreen);
     }
 
 	private void OnGUI() {
-		if (Screen.fullScreen)
-        {
+		if (Screen.fullScreen) {
             changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
         }
-        else
-        {
+        else {
             changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
         }
 	}

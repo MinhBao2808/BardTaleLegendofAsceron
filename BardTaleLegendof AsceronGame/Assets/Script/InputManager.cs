@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 	public static InputManager instance = null;
+	[SerializeField] public GameObject[] loadGameButton;
 
 	void Awake() {
 		if (InputManager.instance != null && instance != this) {
