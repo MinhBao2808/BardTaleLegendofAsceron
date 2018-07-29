@@ -323,12 +323,12 @@ public class GameManager:MonoBehaviour {
         SetResolution(Screen.fullScreen ? currWindowedRes : currFullscreenRes,!Screen.fullScreen);
     }
 
-	private void OnGUI() {
+	/*private void OnGUI() {
 		if (Screen.fullScreen) {
             changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
         }
         else {
             changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
         }
-	}
+	}*/
 }
