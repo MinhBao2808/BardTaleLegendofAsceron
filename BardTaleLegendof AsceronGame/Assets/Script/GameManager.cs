@@ -30,6 +30,7 @@ public class GameManager:MonoBehaviour {
 	public int[] arrayOfSave = new int[10];
 	public int index;//store index of save file
     private Vector3 currentPlayerPosition = new Vector3();
+	private bool isSceneMenu;
 	public Level level;
 	// Fixed aspect ratio parameters
     static public bool FixedAspectRatio = true;
@@ -56,6 +57,7 @@ public class GameManager:MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
 		index = PlayerPrefs.GetInt("c");
+		isSceneMenu = true;
     }
 
 	private void Start() {
@@ -158,9 +160,13 @@ public class GameManager:MonoBehaviour {
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
 		if (scene.name == "MapScene") {
+			isSceneMenu = false;
 			SpawnEnemy();
 			//SceneManager.sceneLoaded -= OnSceneLoaded;
         }
+		if (scene.name == "BattleScene") {
+			isSceneMenu = false;
+		}
     }
 
 	private void SpawnEnemy () {
@@ -324,11 +330,17 @@ public class GameManager:MonoBehaviour {
     }
 
 	private void OnGUI() {
-		if (Screen.fullScreen) {
-            changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
-        }
-        else {
-            changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
-        }
+		if (isSceneMenu == true)
+		{
+			//Debug.Log("a");
+			if (Screen.fullScreen)
+			{
+				changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
+			}
+			else
+			{
+				changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
+			}
+		}
 	}
 }

@@ -128,13 +128,14 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChoosePlayer
 d0dded66b4790932f283ce432d298e3b Assembly-CSharp.dll:.DestroyDamageText
+cfd381f93132398f9c9fb2aedf4c1e8d Assembly-CSharp.dll:.SaveUIManager
 6bab01496d84b3362256c052524eb0f3 Assembly-CSharp.dll:.KillEmeny
-c52c6620c03c767da392d7ad6e449d28 Assembly-CSharp.dll:.GameManager
+209c77ee891804d641d9f1643468b087 Assembly-CSharp.dll:.GameManager
 da6e1060b61cc0142b8a1b308b57ce5e Assembly-CSharp.dll:.CreateEnemyMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SaveLoad
 32e8fe00b63ed946490b898f6024a2f2 Facebook.Unity.Settings.dll:Facebook.Unity.Settings.FacebookSettings
 f5415963b6944dd0e165b5f4fc0e1b44 Assembly-CSharp.dll:.CameraScreenResolution
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.InputManager
+8995f50bf16806a50e2e261858fd54b0 Assembly-CSharp.dll:.InputManager
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
