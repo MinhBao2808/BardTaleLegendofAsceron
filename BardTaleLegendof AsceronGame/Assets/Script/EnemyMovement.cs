@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour {
 	[SerializeField] private float rayLength;
 	[SerializeField] private LayerMask layer;
 
-	private RaycastHit2D hit;
+	private bool isHit;
 	private GameObject player;
 	private bool enemySeePlayer = false;
 	private Vector2 enemyStartPosition;
@@ -29,21 +29,31 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var target = player.transform.position;
-		hit = Physics2D.Raycast(transform.position,Vector2.zero,rayLength,layer.value);
-		if (hit.collider != null) {
-			DataManager.instance.listEnemyDefeatedPosition.Enqueue(enemyStartPosition);
-			Destroy(this.gameObject);
-			GameManager.instance.GoToBattle();
+		isHit = Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward),rayLength,layer.value);
+		Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayLength, Color.yellow);
+		if (isHit) {
+			Debug.Log("a");
+			//DataManager.instance.listEnemyDefeatedPosition.Enqueue(enemyStartPosition);
+			//Destroy(this.gameObject);
+			//GameManager.instance.GoToBattle();
+			enemySeePlayer = true;
+
 		}
 		if (enemySeePlayer == true) {
 			//move to player
-			transform.position = Vector3.MoveTowards(transform.position, target, enemySpeed * Time.deltaTime);
+			Vector3 lookAt = player.transform.position;
+            lookAt.y = transform.position.y;
+            transform.LookAt(lookAt);
+            transform.position = Vector3.MoveTowards(transform.position, target, enemySpeed * Time.deltaTime);
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
+	private void OnTriggerEnter(Collider collision) {
 		if (collision.gameObject.tag == "Player") {
-			enemySeePlayer = true;
+			//enemySeePlayer = true;
+			DataManager.instance.listEnemyDefeatedPosition.Enqueue(enemyStartPosition);
+            Destroy(this.gameObject);
+            GameManager.instance.GoToBattle();
 		}
 	}
 }

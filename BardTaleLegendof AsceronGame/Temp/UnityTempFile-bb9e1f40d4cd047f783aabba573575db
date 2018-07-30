@@ -186,6 +186,7 @@
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
 -define:CROSS_PLATFORM_INPUT
+'Assets/amusedART/Mushroom_Monster/Script/MushroomMon_Ani_Test.cs'
 'Assets/Script/AdCallBackButton.cs'
 'Assets/Script/AspectUtility.cs'
 'Assets/Script/AttackTarget.cs'
