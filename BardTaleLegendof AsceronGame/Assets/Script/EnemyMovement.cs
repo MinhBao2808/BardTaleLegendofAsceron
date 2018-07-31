@@ -13,8 +13,6 @@ public class EnemyMovement : MonoBehaviour {
 	private bool enemySeePlayer = false;
 	private Vector2 enemyStartPosition;
 
-    
-
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindWithTag("Player").gameObject;
@@ -32,9 +30,9 @@ public class EnemyMovement : MonoBehaviour {
 		isHitForward = Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward),rayLength,layer.value);
 		isHitRight45Degree = Physics.Raycast(transform.position, transform.TransformDirection((Vector3.forward + Vector3.right).normalized), rayLength, layer.value);
 		isHitLeft45Degree = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward + Vector3.left).normalized, rayLength, layer.value);
-		Debug.DrawRay(transform.position, transform.TransformDirection((Vector3.forward + Vector3.right).normalized) * rayLength, Color.yellow);
-		Debug.DrawRay(transform.position, transform.TransformDirection((Vector3.forward + Vector3.left).normalized) * rayLength, Color.yellow);
-		Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayLength, Color.yellow);
+		//Debug.DrawRay(transform.position, transform.TransformDirection((Vector3.forward + Vector3.right).normalized) * rayLength, Color.yellow);
+		//Debug.DrawRay(transform.position, transform.TransformDirection((Vector3.forward + Vector3.left).normalized) * rayLength, Color.yellow);
+		//Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * rayLength, Color.yellow);
 		if (isHitForward || isHitRight45Degree || isHitLeft45Degree) {
 			Debug.Log("a");
 			//DataManager.instance.listEnemyDefeatedPosition.Enqueue(enemyStartPosition);
