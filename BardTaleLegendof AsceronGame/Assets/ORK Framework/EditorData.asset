@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: EditorData
   m_EditorClassIdentifier: 
   lastProject: {fileID: 11400000, guid: 78c77bb956d6e17419757eda2c68fa69, type: 2}
-  section: 0
-  subSection: 0
+  section: 8
+  subSection: 1
   tabIndex: 0
-  scrollY: 1728.6001
+  scrollY: 0
   helpDrag: 220
   subSectionDrag: 200
   tabListDrag: 300
@@ -25,9 +25,9 @@ MonoBehaviour:
   guiEditorDrag: 500
   updateEvents: 1
   eventUpdateFolder: 
-  updatePrefabs: 0
-  updateScenes: 0
-  sceneUpdate: 
+  updatePrefabs: 1
+  updateScenes: 1
+  sceneUpdate: 01010101
   eventAsset: []
   gameEventAsset: []
   moveEventAsset: []
