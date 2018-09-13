@@ -8,21 +8,27 @@ public class OptionsScripts : MonoBehaviour {
 
     public void SetMasterVolume (float volume)
     {
-        audioMixer.SetFloat("masterVol", volume);
+        SetVolume("masterVol", volume);
     }
 
     public void SetMusicVolume(float volume)
     {
-        audioMixer.SetFloat("musicVol", volume);
+        SetVolume("musicVol", volume);
     }
 
     public void SetVoiceVolume(float volume)
     {
-        audioMixer.SetFloat("voiceVol", volume);
+        SetVolume("voiceVol", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        audioMixer.SetFloat("sfxVol", volume);
+        SetVolume("sfxVol", volume);
+    }
+
+    private void SetVolume(string channel, float volume)
+    {
+        audioMixer.SetFloat(channel, volume);
+        PlayerPrefs.SetFloat(channel, volume);
     }
 }
