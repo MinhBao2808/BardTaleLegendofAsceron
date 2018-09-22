@@ -53,7 +53,7 @@ public class OptionsScripts : MonoBehaviour {
         SetResolution(PlayerPrefs.GetInt("resolutionIndex", currentResolutionIndex));
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.value = PlayerPrefs.GetInt("resolutionIndex", currentResolutionIndex);
         resolutionDropdown.RefreshShownValue();
 
         fullscreenToggle.isOn = PlayerPrefs.GetString("fullscreenMode", "true") == "true" ? true : false;
