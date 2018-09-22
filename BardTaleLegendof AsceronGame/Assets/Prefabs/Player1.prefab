@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4182554408666688}
   - component: {fileID: 114072364488818050}
   - component: {fileID: 212027188878991562}
-  - component: {fileID: 114839011214555122}
   m_Layer: 0
   m_Name: Player1
   m_TagString: PlayerUnit
@@ -54,18 +53,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1957834882631578}
---- !u!114 &114839011214555122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1957834882631578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd957cc35c0d4393b94204e3b72f508, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
 --- !u!212 &212027188878991562
 SpriteRenderer:
   m_ObjectHideFlags: 1
