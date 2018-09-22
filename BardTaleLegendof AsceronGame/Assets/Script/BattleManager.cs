@@ -168,6 +168,7 @@ public class BattleManager : MonoBehaviour {
 		}
 		if (isPlayerSelectEnemy == true) {
 			playerList.Remove(currentUnit);
+			Debug.Log(enemySelectedPositionIndex);
 			currentUnit.GameObject.GetComponent<GetPlayerAction>().AttackTarget(enemySpawnPositions[enemySelectedPositionIndex]);
 			isPlayerSelectEnemy = false;
 		}

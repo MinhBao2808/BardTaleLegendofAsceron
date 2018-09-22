@@ -6,7 +6,7 @@ public class SelectorMovement : MonoBehaviour {
 	private int selectorCurrentPosition;
 	//// Use this for initialization
 	void Start () {
-		selectorCurrentPosition = 0;
+		//selectorCurrentPosition = 0;
 	}
 
 	// Update is called once per frame
@@ -14,7 +14,7 @@ public class SelectorMovement : MonoBehaviour {
 	{
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-			BattleManager.instance.enemyPositionIndex = selectorCurrentPosition;
+			BattleManager.instance.enemySelectedPositionIndex = selectorCurrentPosition;
 			BattleManager.instance.isPlayerSelectEnemy = true;
 			BattleManager.instance.FristTurn();
 			Destroy(this.gameObject);
@@ -26,7 +26,7 @@ public class SelectorMovement : MonoBehaviour {
 				if (Input.GetKeyDown(KeyCode.DownArrow) && BattleManager.instance.enemyPositionIndex >= 3)
 				{
 					transform.position = BattleManager.instance.enemySpawnPositions[2].transform.position;
-					selectorCurrentPosition = 3;
+					selectorCurrentPosition = 2;
 
 				}
 				if (Input.GetKeyDown(KeyCode.RightArrow) && BattleManager.instance.enemyPositionIndex >= 5)
@@ -57,8 +57,8 @@ public class SelectorMovement : MonoBehaviour {
 			{
 				if (Input.GetKeyDown(KeyCode.UpArrow))
 				{
-					transform.position = BattleManager.instance.enemySpawnPositions[0].transform.position;
-					selectorCurrentPosition = 0;
+					transform.position = BattleManager.instance.enemySpawnPositions[1].transform.position;
+					selectorCurrentPosition = 1;
 				}
 				if (Input.GetKeyDown(KeyCode.RightArrow) && BattleManager.instance.enemyPositionIndex >= 6)
 				{
