@@ -7,9 +7,13 @@ public class GetPlayerAction : MonoBehaviour {
     private Vector3 startPosition;
     public GameObject owner;
 
+	private void Start() {
+		startPosition = this.transform.position;
+	}
+
 	//private void Start() {
- //       //startPosition = transform.position;
- //       Debug.Log(startPosition);
+	//       //startPosition = transform.position;
+	//       Debug.Log(startPosition);
 	//}
 
 	public void updatePlayerUI () {
@@ -20,8 +24,8 @@ public class GetPlayerAction : MonoBehaviour {
 
     }
 
-    public void AttackTarget (GameObject target,GameObject player) {
-        startPosition = player.gameObject.transform.position;
+    public void AttackTarget (GameObject target) {
+        //startPosition = player.gameObject.transform.position;
         if (BattleManager.instance.isEnemyTurn() == false) {
             StartCoroutine(TimeForAction(target));
         }
@@ -37,7 +41,7 @@ public class GetPlayerAction : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         //do damage
         actionStarted = true;
-        Hit(target);
+        //Hit(target);
         //owner attack return to start positon
         Vector3 firstPosition = startPosition;
         while (MoveTowardsTarget(firstPosition)) {
@@ -45,7 +49,7 @@ public class GetPlayerAction : MonoBehaviour {
         }
         if (actionStarted == true) {
             GameObject turnSystem = GameObject.Find("BattleManager");
-            turnSystem.GetComponent<BattleManager>().nextTurn();
+			turnSystem.GetComponent<BattleManager>().FristTurn();
         }
 
     }
@@ -57,6 +61,6 @@ public class GetPlayerAction : MonoBehaviour {
     }
 
     private bool MoveTowardsTarget(Vector3 target) {
-        return target != (transform.position = Vector3.MoveTowards(transform.position, target, 25.0f * Time.deltaTime));
+        return target != (transform.position = Vector3.MoveTowards(transform.position, target, 100.0f * Time.deltaTime));
     }
 }

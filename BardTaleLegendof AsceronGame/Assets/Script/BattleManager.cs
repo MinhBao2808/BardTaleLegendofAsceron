@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using ORKFramework;
+using ORKFramework.Behaviours;
+using ORKFramework.Events;
 
 public class BattleManager : MonoBehaviour {
     public static BattleManager instance = null;
+	//[SerializeField] private GameObject enemyObject;
     [SerializeField] private GameObject playerHealthName;//get player health text game object
     [SerializeField] private GameObject playerManaName;//get player mana text game object
     [SerializeField] private GameObject[] enemyEncouterPrefab;
@@ -15,74 +19,164 @@ public class BattleManager : MonoBehaviour {
     [SerializeField] private Text playerManaText;
     //[SerializeField] private GameObject player;
     [SerializeField] private GameObject actionsMenu, enemyUnitsMenu;
-
+	[SerializeField] private GameObject[] playerSpawnPositions;
+	[SerializeField] public GameObject[] enemySpawnPositions;
+	[SerializeField] private GameObject selector;
+	private Combatant[] enemyCombatant = new Combatant[6];
+	private Combatant[] playerCombatant = new Combatant[3];
+	private Group enemyGroup;
+	private Group playerGroup;
     private List<PlayerStat> unitStats;
+	private List<Combatant> enemyList;
+	private List<Combatant> playerList;
     //private List<int> unitTurn;
     private GameObject playerParty;
     public GameObject enemyEncounter;
     public float timer;
+	public int enemyPositionIndex;
+	public int enemySelectedPositionIndex;
+	public bool isPlayerSelectEnemy = false;
     private float time;
     private bool enemyTurn = false;
     private bool playerSelectAttack = false;
     private bool playerAttack = false;
 	private float sumExpCanGet = 0.0f;
+	//private Vector3 selectorPositionY = new Vector3(0, 3, 0);
+
+	private void SpawnEnemy () {
+		enemyPositionIndex = Random.Range(1, enemySpawnPositions.Length);
+		int enemyDataIndex;
+		for (int i = 0; i < enemyPositionIndex; i++) {
+			enemyDataIndex = Random.Range(2, 3);
+			enemyCombatant[i] = ORK.Combatants.Create(enemyDataIndex, enemyGroup);
+			enemyCombatant[i].Init();
+			enemyCombatant[i].Spawn(enemySpawnPositions[i].transform.position, 
+			                        false, enemySpawnPositions[i].transform.rotation.y, 
+			                        false, enemySpawnPositions[i].transform.localScale);
+		}
+	}
+    //số 69 lý tự trọng quận 1 
+
+	private void SpawnPlayer () {
+		//use index to spawn player
+		playerCombatant[0] = ORK.Combatants.Create(0, playerGroup);
+		playerCombatant[0].Init();
+		playerCombatant[0].Spawn(playerSpawnPositions[0].transform.position,
+								 false, playerSpawnPositions[0].transform.rotation.y,
+								 false, playerSpawnPositions[0].transform.localScale);
+		playerCombatant[1] = ORK.Combatants.Create(1, playerGroup);
+		playerCombatant[1].Init();
+		playerCombatant[1].Spawn(playerSpawnPositions[1].transform.position,
+								 false, playerSpawnPositions[1].transform.rotation.y,
+								 false, playerSpawnPositions[1].transform.localScale);
+	}
 
 	void Awake() {
         if (instance == null) {
             instance = this;
         }
-		if (GameManager.instance.level == Level.Passive) {
-			timer = 30.0f;
-		}
-		if (GameManager.instance.level == Level.Normal) {
-			timer = 20.0f;
-		}
-		if (GameManager.instance.level == Level.Aggressive) {
-			timer = 10.0f;
-		}
-		if (GameManager.instance.level == Level.Nightmare) {
-			timer = 5.0f;
-		}
+		enemyGroup = new Group(1);
+		playerGroup = new Group(0);
+		SpawnEnemy();
+		SpawnPlayer();
+		//Combatant enemy1 = ORK.Combatants.Create(2, enemyGroup);
+		//enemy1.Init();
+		//enemy1.Spawn(enemySpawnPositions[0].transform.position, false,enemySpawnPositions[0].transform.rotation.y, false,enemySpawnPositions[0].transform.localScale);
+		//var hp = enemy1.Status[0];
+		//Debug.Log(hp.GetValue());
+		//if (GameManager.instance.level == Level.Passive) {
+		//	timer = 30.0f;
+		//}
+		//if (GameManager.instance.level == Level.Normal) {
+		//	timer = 20.0f;
+		//}
+		//if (GameManager.instance.level == Level.Aggressive) {
+		//	timer = 10.0f;
+		//}
+		//if (GameManager.instance.level == Level.Nightmare) {
+		//	timer = 5.0f;
+		//}
+		timer = ORK.Difficulties.GetBattleFactor() * 20.0f;
         time = timer;
-		Debug.Log(time);
+		//Debug.Log(time);
         playerAttack = false;
-        int index = Random.Range(0, enemyEncouterPrefab.Length);
-        Instantiate(enemyEncouterPrefab[index], enemyEncouterPrefab[index].transform.position, enemyEncouterPrefab[index].transform.rotation);
+		//enemySelectedPositionIndex = 0;
+        //int index = Random.Range(0, enemyEncouterPrefab.Length);
+        //Instantiate(enemyEncouterPrefab[index], enemyEncouterPrefab[index].transform.position, enemyEncouterPrefab[index].transform.rotation);
 	}
 
     void Start() {
-        this.playerParty = GameObject.Find("PlayerParty");
+        //this.playerParty = GameObject.Find("PlayerParty");
         unitStats = new List<PlayerStat>();
+		enemyList = new List<Combatant>();
+		playerList = new List<Combatant>();
         //unitTurn = new List<int>();
-        GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
-        foreach (GameObject playerUnit in playerUnits) {
-            PlayerStat currentStat = playerUnit.GetComponent<PlayerStat>();
-            currentStat.CalculateNextTurn(0);
-            unitStats.Add(currentStat);
-            //unitTurn.Add(currentStat.nextActTurn);
-        }
-        GameObject[] enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemyUnits) {
-            PlayerStat currentStat = enemy.GetComponent<PlayerStat>();
-            currentStat.CalculateNextTurn(0);
-            unitStats.Add(currentStat);
-			sumExpCanGet = sumExpCanGet + currentStat.expPoints;
-            //unitTurn.Add(currentStat.nextActTurn);
-        }
-        //unitTurn.Sort();
+        //GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
+        //foreach (GameObject playerUnit in playerUnits) {
+        //    PlayerStat currentStat = playerUnit.GetComponent<PlayerStat>();
+        //    currentStat.CalculateNextTurn(0);
+        //    unitStats.Add(currentStat);
+        //    //unitTurn.Add(currentStat.nextActTurn);
+        //}
+   //     GameObject[] enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
+   //     foreach (GameObject enemy in enemyUnits) {
+   //         PlayerStat currentStat = enemy.GetComponent<PlayerStat>();
+   //         currentStat.CalculateNextTurn(0);
+   //         unitStats.Add(currentStat);
+			//sumExpCanGet = sumExpCanGet + currentStat.expPoints;
+        //    //unitTurn.Add(currentStat.nextActTurn);
+        //}
+		//unitTurn.Sort();
+		foreach (Combatant enemy in enemyCombatant){
+			enemyList.Add(enemy);
+		}
+		//enemyList.Sort(delegate (Combatant x, Combatant y) {
+		//	return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
+		//});
+		foreach (Combatant player in playerCombatant) {
+			playerList.Add(player);
+		}
+		//playerList.Sort(delegate (Combatant x, Combatant y) {
+		//	return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
+		//});
+		Debug.Log(enemyPositionIndex);
         unitStats.Sort();
         this.actionsMenu.SetActive(false);
         this.playerHealthName.SetActive(false);
 		this.playerAvatar.SetActive(false);
         this.playerManaName.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
-        this.nextTurn();
+		this.FristTurn();
+	}
+
+	public void FristTurn () {
+		//if (enemyList.Count == 0) {
+		//	GameManager.instance.LoadMapScene();
+		//}
+		//if (playerList.Count == 0) {
+		//	GameManager.instance.LoadGameMenu();
+		//}
+		//Combatant currentUnit = playerList[0];
+		//playerList.Remove(currentUnit);
+		//if (currentUnit.Dead != true) {
+		//	GameObject currentUnitObject = currentUnit.GameObject;
+		//	Instantiate(selector, enemySpawnPositions[0].transform.position, enemySpawnPositions[0].transform.rotation);
+		//}
+		Combatant currentUnit = playerList[0];
+		if (isPlayerSelectEnemy == false) {
+			Instantiate(selector, enemySpawnPositions[0].transform.position, enemySpawnPositions[0].transform.rotation);
+		}
+		if (isPlayerSelectEnemy == true) {
+			playerList.Remove(currentUnit);
+			currentUnit.GameObject.GetComponent<GetPlayerAction>().AttackTarget(enemySpawnPositions[enemySelectedPositionIndex]);
+			isPlayerSelectEnemy = false;
+		}
 	}
 
     void Update() {
         if (enemyTurn == false && playerSelectAttack == false) {
 			time -= Time.deltaTime;
-            Debug.Log(time);
+            //Debug.Log(time);
             if (time <= 0.0f) {
 				time = timer;
                 this.nextTurn();

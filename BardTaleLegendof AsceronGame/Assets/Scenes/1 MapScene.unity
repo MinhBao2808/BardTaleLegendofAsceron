@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,11 +152,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 111222893022349658, guid: 3a01b32e925c0424fbccbd004a0bb18b,
-        type: 2}
-      propertyPath: m_Animation
-      value: 
-      objectReference: {fileID: 7400000, guid: 0e92216e76934164ebc2ff6dcb6caa6a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a01b32e925c0424fbccbd004a0bb18b, type: 2}
   m_IsPrefabAsset: 0
@@ -4163,6 +4158,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 201d70ebb89dd5741af28da861422b90, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &461542897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 201d70ebb89dd5741af28da861422b90,
+    type: 2}
+  m_PrefabInternal: {fileID: 461542896}
+--- !u!136 &461542898
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 461542897}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.931437
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.1256173, z: 0}
 --- !u!1 &470681648
 GameObject:
   m_ObjectHideFlags: 0
@@ -15265,7 +15278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7.799988, y: -8.600006}
+  m_AnchoredPosition: {x: 7.800049, y: -8.599976}
   m_SizeDelta: {x: 44.1, y: 17.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2119095283

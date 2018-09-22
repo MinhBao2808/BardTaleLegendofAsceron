@@ -69,7 +69,7 @@ public class GameManager:MonoBehaviour {
         currentPlayerPosition = PlayerMovement.instance.ReturnPlayerPosition();
         DataManager.instance.playerPosition = currentPlayerPosition;
 		battleMusic.SetActive(true);
-		SceneManager.LoadScene("BattleScene");
+		SceneManager.LoadScene("2 BattleScene");
     }
 
 	public void LoadDifficultys() {//go to map 
@@ -113,7 +113,7 @@ public class GameManager:MonoBehaviour {
 		settingPanel.SetActive(false);
 		creditPanel.SetActive(false);
 		gameLevelPanel.SetActive(false);
-		SaveLoad.LoadMultipleFiles(loadButtonPrefabs,arrayOfSave);
+		//SaveLoad.LoadMultipleFiles(loadButtonPrefabs,arrayOfSave);
 	}
 
 	public void ChangeResolution(int index) {
@@ -159,12 +159,12 @@ public class GameManager:MonoBehaviour {
     }
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-		if (scene.name == "MapScene") {
+		if (scene.name == "1 MapScene") {
 			isSceneMenu = false;
 			SpawnEnemy();
 			//SceneManager.sceneLoaded -= OnSceneLoaded;
         }
-		if (scene.name == "BattleScene") {
+		if (scene.name == "2 BattleScene") {
 			isSceneMenu = false;
 		}
     }
@@ -329,18 +329,18 @@ public class GameManager:MonoBehaviour {
         SetResolution(Screen.fullScreen ? currWindowedRes : currFullscreenRes,!Screen.fullScreen);
     }
 
-	private void OnGUI() {
-		if (isSceneMenu == true)
-		{
-			//Debug.Log("a");
-			if (Screen.fullScreen)
-			{
-				changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
-			}
-			else
-			{
-				changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
-			}
-		}
-	}
+	//private void OnGUI() {
+	//	if (isSceneMenu == true)
+	//	{
+	//		//Debug.Log("a");
+	//		if (Screen.fullScreen)
+	//		{
+	//			changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Windowed";
+	//		}
+	//		else
+	//		{
+	//			changeFullScreenToWindows.GetComponentsInChildren<Text>()[0].text = "Full screen";
+	//		}
+	//	}
+	//}
 }

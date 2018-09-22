@@ -13,12 +13,12 @@ public class StartBattle : MonoBehaviour {
 	}
 	
     private void OnSceneLoaded (Scene scene, LoadSceneMode mode) {
-        if (scene.name == "GameMenu") {
+        if (scene.name == "0 GameMenu") {
             SceneManager.sceneLoaded -= OnSceneLoaded;
             Destroy(this.gameObject);
         }
         else {
-            this.gameObject.SetActive(scene.name == "BattleScene");
+            this.gameObject.SetActive(scene.name == "2 BattleScene");
         }
     }
 }
