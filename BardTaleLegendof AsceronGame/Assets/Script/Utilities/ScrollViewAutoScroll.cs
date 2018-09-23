@@ -37,8 +37,8 @@ public class ScrollViewAutoScroll : MonoBehaviour
 
             m_buttons[m_index].Select();
             m_verticalPosition = 1f - ((float)m_index / (m_buttons.Length - 1));
-        }
 
-        m_scrollRect.verticalNormalizedPosition = Mathf.Lerp(m_scrollRect.verticalNormalizedPosition, m_verticalPosition, Time.deltaTime / m_lerpTime);
+            m_scrollRect.verticalNormalizedPosition = Mathf.Lerp(m_scrollRect.verticalNormalizedPosition, m_verticalPosition, Time.deltaTime / m_lerpTime);
+        }
     }
 }

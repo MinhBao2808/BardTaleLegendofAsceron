@@ -25,10 +25,10 @@ public class OptionsScripts : MonoBehaviour {
     
     private void AudioInit()
     {
-        masterVolSlider.value = PlayerPrefs.GetFloat("masterVol", 20);
-        musicVolSlider.value = PlayerPrefs.GetFloat("musicVol", 20);
-        voiceVolSlider.value = PlayerPrefs.GetFloat("voiceVol", 20);
-        sfxVolSlider.value = PlayerPrefs.GetFloat("sfxVol", 20);
+        masterVolSlider.value = PlayerPrefs.GetFloat("masterVol", 0);
+        musicVolSlider.value = PlayerPrefs.GetFloat("musicVol", 0);
+        voiceVolSlider.value = PlayerPrefs.GetFloat("voiceVol", 0);
+        sfxVolSlider.value = PlayerPrefs.GetFloat("sfxVol", 0);
     }
 
     private void VideoInit()
@@ -49,8 +49,7 @@ public class OptionsScripts : MonoBehaviour {
                 resolutions[i].height == Screen.currentResolution.height)
                 currentResolutionIndex = i;
         }
-
-        SetResolution(PlayerPrefs.GetInt("resolutionIndex", currentResolutionIndex));
+        SetResolution(PlayerPrefs.GetInt("resolutionIndex", 0));
 
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = PlayerPrefs.GetInt("resolutionIndex", currentResolutionIndex);
