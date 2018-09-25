@@ -9,6 +9,8 @@ TagManager:
   - DeadUnit
   - SpawnPoint
   - ChooseEnemyButton
+  - Checkpoint
+  - Object
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
-  - 
+  - Object
+  - Obstacle
   - 
   - 
   - 

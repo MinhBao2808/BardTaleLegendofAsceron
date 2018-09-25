@@ -1437,6 +1437,8 @@ MonoBehaviour:
   enemyEncounter: {fileID: 0}
   timer: 5
   enemyPositionIndex: 0
+  enemySelectedPositionIndex: 0
+  isPlayerSelectEnemy: 0
 --- !u!1 &1340353217
 GameObject:
   m_ObjectHideFlags: 0
