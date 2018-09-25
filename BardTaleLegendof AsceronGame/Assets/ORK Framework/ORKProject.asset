@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: -575660022, guid: f4979b3083d349140bb14b6ec7fc999a, type: 3}
   m_Name: ORKProject
   m_EditorClassIdentifier: 
-  time: 09/13/2018 14:58:47
+  time: 09/25/2018 15:20:57
   version: 2.17.1
   keys:
   - editorSettings
@@ -1981,13 +1981,10 @@ MonoBehaviour:
       3838 3939 4040 4141 4242 4343 4444 4545 4646 4747 4848 4949 5050 5151 5252 5353
       5454 5555 5656 5757 5858 5959 6060 6161 6262 6363 6464 6565 6666 6767 6868 6969
       7070 7171 7272 7373 7474 7575 7676 7777 7878 7979 8080 8181 8282 8383 8484 8585
-      8686 8787 8888 8989 9090 9191 9292 9393 9494 9595 9696 9797 9898 9999 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1
+      8686 8787 8888 8989 9090 9191 9292 9393 9494 9595 9696 9797 9898 9999 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1></1>\n\t\t\t\t\t\t<2
       type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</1>\n\t\t\t\t\t\t<2 type=\"0\" initValue=\"1\" formulaID=\"0\"
-      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</3>\n\t\t\t\t\t\t<4 type=\"0\" initValue=\"1\" formulaID=\"0\"
-      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5
+      />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3></3>\n\t\t\t\t\t\t<4 type=\"0\" initValue=\"1\"
+      formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5
       type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t</5>\n\t\t\t\t\t\t<6 type=\"0\" initValue=\"1\" formulaID=\"0\"
       >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</6>\n\t\t\t\t\t\t<7
@@ -2003,7 +2000,23 @@ MonoBehaviour:
       81818 82828 83838 84848 85858 86868 87878 88888 89898 90909 91919 92929 93939
       94949 95959 96969 97979 98989 100000 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</8>\n\t\t\t\t\t\t<9
       type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</9>\n\t\t\t\t\t</statusValue>\n\t\t\t\t\t<upgrade>\n\t\t\t\t\t</upgrade>\n\t\t\t\t</_subarrays>\n\t\t\t</0>\n\t\t</data>\n\t</_subarrays>\n</statusDevelopments>\n"
+      />\n\t\t\t\t\t\t</9>\n\t\t\t\t\t</statusValue>\n\t\t\t\t\t<upgrade>\n\t\t\t\t\t</upgrade>\n\t\t\t\t</_subarrays>\n\t\t\t</0>\n\t\t\t<1
+      minLevel=\"1\" maxLevel=\"10\" >\n\t\t\t\t<_string>\n\t\t\t\t\t<name><![CDATA[Player2
+      Development]]></name>\n\t\t\t\t</_string>\n\t\t\t\t<_subarrays>\n\t\t\t\t\t<statusValue>\n\t\t\t\t\t\t<0
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1></1>\n\t\t\t\t\t\t<2 type=\"0\" initValue=\"1\"
+      formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3></3>\n\t\t\t\t\t\t<4
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</5>\n\t\t\t\t\t\t<6
+      type=\"0\" initValue=\"3\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</6>\n\t\t\t\t\t\t<7 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</7>\n\t\t\t\t\t\t<8
+      type=\"1\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t\t<_intarrays>\n\t\t\t\t\t\t\t\t<levelValue 0 20000 30000 40000
+      50000 60000 70000 80000 90000 100000 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</8>\n\t\t\t\t\t\t<9
+      type=\"0\" initValue=\"2\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</9>\n\t\t\t\t\t</statusValue>\n\t\t\t\t\t<upgrade>\n\t\t\t\t\t</upgrade>\n\t\t\t\t</_subarrays>\n\t\t\t</1>\n\t\t</data>\n\t</_subarrays>\n</statusDevelopments>\n"
     lookUp:
       textures: []
       audioClips: []
@@ -2797,7 +2810,7 @@ MonoBehaviour:
       offset=\"0\" value=\"9\" value2=\"0\" />\n\t\t\t\t\t\t<_bool isInt=\"False\"
       isUTC=\"False\" />\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</sprintSpeed>\n\t\t\t\t</moveSettings>\n\t\t\t\t<_subarrays>\n\t\t\t\t\t<conditionalPrefab>\n\t\t\t\t\t</conditionalPrefab>\n\t\t\t\t\t<battleSound>\n\t\t\t\t\t</battleSound>\n\t\t\t\t\t<portrait>\n\t\t\t\t\t</portrait>\n\t\t\t\t\t<normalSVReward>\n\t\t\t\t\t</normalSVReward>\n\t\t\t\t\t<fieldStatusChange>\n\t\t\t\t\t</fieldStatusChange>\n\t\t\t\t\t<battleStatusChange>\n\t\t\t\t\t</battleStatusChange>\n\t\t\t\t\t<atkAttrStart>\n\t\t\t\t\t</atkAttrStart>\n\t\t\t\t\t<defAttrStart>\n\t\t\t\t\t</defAttrStart>\n\t\t\t\t\t<baseAttack>\n\t\t\t\t\t\t<0
       id=\"0\" level=\"1\" >\n\t\t\t\t\t\t</0>\n\t\t\t\t\t</baseAttack>\n\t\t\t\t\t<itemDrop>\n\t\t\t\t\t</itemDrop>\n\t\t\t\t\t<startEquipment>\n\t\t\t\t\t</startEquipment>\n\t\t\t\t\t<aiBehaviour>\n\t\t\t\t\t</aiBehaviour>\n\t\t\t\t\t<aiBehaviourSlot>\n\t\t\t\t\t</aiBehaviourSlot>\n\t\t\t\t\t<aiRulesetSlot>\n\t\t\t\t\t</aiRulesetSlot>\n\t\t\t\t\t<defaultShortcut>\n\t\t\t\t\t</defaultShortcut>\n\t\t\t\t\t<autoAddShortcuts>\n\t\t\t\t\t</autoAddShortcuts>\n\t\t\t\t\t<autoArrangeShortcuts>\n\t\t\t\t\t</autoArrangeShortcuts>\n\t\t\t\t\t<languageInfo>\n\t\t\t\t\t\t<0>\n\t\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t\t<name><![CDATA[Player1]]></name>\n\t\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t\t</_string>\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1>\n\t\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t\t</_string>\n\t\t\t\t\t\t</1>\n\t\t\t\t\t</languageInfo>\n\t\t\t\t</_subarrays>\n\t\t\t</0>\n\t\t\t<1
-      typeID=\"0\" startLevel=\"1\" startClassID=\"0\" startClassLevel=\"1\" statusDevelopmentID=\"0\"
+      typeID=\"0\" startLevel=\"1\" startClassID=\"0\" startClassLevel=\"1\" statusDevelopmentID=\"1\"
       lootOrigin=\"0\" autoStartBattleRequirementType=\"0\" menuID=\"0\" turnBasedMenuID=\"0\"
       activeTimeMenuID=\"0\" realTimeMenuID=\"0\" phaseMenuID=\"0\" logTextID=\"0\"
       logID=\"0\" deathVarOrigin=\"0\" stealItemType=\"0\" stealItemID=\"0\" stealMoneyAmount=\"0\"
@@ -2833,8 +2846,8 @@ MonoBehaviour:
       ownShortcutListCount=\"False\" replaceDefaultShortcuts=\"False\" replaceDefaultAutoAddSlots=\"False\"
       replaceDefaultAutoArrangeSlots=\"False\" useBattleAnims=\"False\" autoMoveAnimation=\"False\"
       useMoveAI=\"False\" useBattleMoveAI=\"False\" />\n\t\t\t\t<_intarrays>\n\t\t\t\t\t<controlMap
-      />\n\t\t\t\t\t<defenceAttributeID 0 1 />\n\t\t\t\t\t<actionCombo />\n\t\t\t\t\t<money
-      0 />\n\t\t\t\t</_intarrays>\n\t\t\t\t<_floatarrays>\n\t\t\t\t\t<spawnOffset
+      />\n\t\t\t\t\t<startValue 0 0 0 0 0 0 0 0 0 0 />\n\t\t\t\t\t<defenceAttributeID
+      0 1 />\n\t\t\t\t\t<actionCombo />\n\t\t\t\t\t<money 0 />\n\t\t\t\t</_intarrays>\n\t\t\t\t<_floatarrays>\n\t\t\t\t\t<spawnOffset
       0 0 0 />\n\t\t\t\t</_floatarrays>\n\t\t\t\t<_string>\n\t\t\t\t\t<prefabRoot><![CDATA[]]></prefabRoot>\n\t\t\t\t\t<animationCustomName><![CDATA[]]></animationCustomName>\n\t\t\t\t</_string>\n\t\t\t\t<_gameobject
       prefab=\"1\" />\n\t\t\t\t<buyPriceValue type=\"0\" id=\"0\" rounding=\"0\" >\n\t\t\t\t\t<_float
       initialValue=\"0\" offset=\"0\" value=\"50\" value2=\"0\" />\n\t\t\t\t\t<_bool

@@ -110,35 +110,36 @@ public class BattleManager : MonoBehaviour {
         unitStats = new List<PlayerStat>();
 		enemyList = new List<Combatant>();
 		playerList = new List<Combatant>();
-        //unitTurn = new List<int>();
-        //GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
-        //foreach (GameObject playerUnit in playerUnits) {
-        //    PlayerStat currentStat = playerUnit.GetComponent<PlayerStat>();
-        //    currentStat.CalculateNextTurn(0);
-        //    unitStats.Add(currentStat);
-        //    //unitTurn.Add(currentStat.nextActTurn);
-        //}
-   //     GameObject[] enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
-   //     foreach (GameObject enemy in enemyUnits) {
-   //         PlayerStat currentStat = enemy.GetComponent<PlayerStat>();
-   //         currentStat.CalculateNextTurn(0);
-   //         unitStats.Add(currentStat);
-			//sumExpCanGet = sumExpCanGet + currentStat.expPoints;
-        //    //unitTurn.Add(currentStat.nextActTurn);
-        //}
+		//unitTurn = new List<int>();
+		//GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
+		//foreach (GameObject playerUnit in playerUnits) {
+		//    PlayerStat currentStat = playerUnit.GetComponent<PlayerStat>();
+		//    currentStat.CalculateNextTurn(0);
+		//    unitStats.Add(currentStat);
+		//    //unitTurn.Add(currentStat.nextActTurn);
+		//}
+		//     GameObject[] enemyUnits = GameObject.FindGameObjectsWithTag("Enemy");
+		//     foreach (GameObject enemy in enemyUnits) {
+		//         PlayerStat currentStat = enemy.GetComponent<PlayerStat>();
+		//         currentStat.CalculateNextTurn(0);
+		//         unitStats.Add(currentStat);
+		//sumExpCanGet = sumExpCanGet + currentStat.expPoints;
+		//    //unitTurn.Add(currentStat.nextActTurn);
+		//}
 		//unitTurn.Sort();
-		foreach (Combatant enemy in enemyCombatant){
-			enemyList.Add(enemy);
+		for (int i = 0; i < enemyPositionIndex; i++) {
+			enemyList.Add(enemyCombatant[i]);
 		}
-		//enemyList.Sort(delegate (Combatant x, Combatant y) {
-		//	return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
-		//});
-		foreach (Combatant player in playerCombatant) {
-			playerList.Add(player);
+		enemyList.Sort(delegate (Combatant x, Combatant y) {
+			return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
+		});
+		Debug.Log(enemyList.Count);
+		for (int i = 0; i < 2; i++ ){
+			playerList.Add(playerCombatant[i]);
 		}
-		//playerList.Sort(delegate (Combatant x, Combatant y) {
-		//	return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
-		//});
+		playerList.Sort(delegate (Combatant x, Combatant y) {
+			return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
+		});
 		Debug.Log(enemyPositionIndex);
         unitStats.Sort();
         this.actionsMenu.SetActive(false);
