@@ -6,6 +6,13 @@ public class PlayerManager : MonoBehaviour {
 
     private static PlayerManager _instance;
 
+    public int PlayTime { get; set; }
+    public int Difficulty { get; set; }
+    public int Currency { get; set; }
+
+    private float timeTick = 0f;
+    private const float timeInterval = 1f;
+
     public static PlayerManager Instance
     {
         get { return _instance; }
@@ -25,8 +32,23 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
+    private void Initialize(int diff)
+    {
+        PlayTime = 0;
+        Difficulty = diff;
+        Currency = 0;
+    }
+
     // Update is called once per frame
     void Update () {
-		
+		if (timeTick < timeInterval)
+        {
+            timeTick += Time.deltaTime;
+        }
+        else
+        {
+            timeTick = 0;
+            PlayTime += 1;
+        }
 	}
 }
