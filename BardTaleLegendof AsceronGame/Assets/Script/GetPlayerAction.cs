@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ORKFramework;
+using ORKFramework.Behaviours;
 
 public class GetPlayerAction : MonoBehaviour {
     private bool actionStarted = false;
@@ -24,14 +26,14 @@ public class GetPlayerAction : MonoBehaviour {
 
     }
 
-    public void AttackTarget (GameObject target) {
+	public void AttackTarget (GameObject target, Combatant targetCombatant) {
         //startPosition = player.gameObject.transform.position;
         if (BattleManager.instance.isEnemyTurn() == false) {
-            StartCoroutine(TimeForAction(target));
+			StartCoroutine(TimeForAction(target,targetCombatant));
         }
     }
 
-    IEnumerator TimeForAction(GameObject target)  {
+	IEnumerator TimeForAction(GameObject target, Combatant targetCombatant)  {
 
         Vector3 targetPosition = new Vector3(target.transform.position.x - 2.0f, target.transform.position.y, target.transform.position.z);
         while (MoveTowardsTarget(targetPosition)) {
@@ -41,7 +43,7 @@ public class GetPlayerAction : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         //do damage
         actionStarted = true;
-        //Hit(target);
+		Hit(target,targetCombatant);
         //owner attack return to start positon
         Vector3 firstPosition = startPosition;
         while (MoveTowardsTarget(firstPosition)) {
@@ -49,15 +51,23 @@ public class GetPlayerAction : MonoBehaviour {
         }
         if (actionStarted == true) {
             GameObject turnSystem = GameObject.Find("BattleManager");
-			turnSystem.GetComponent<BattleManager>().FristTurn();
+			if (BattleManager.instance.isFirstTurn == true) {
+				turnSystem.GetComponent<BattleManager>().FristTurn();
+			}
+			else {
+				turnSystem.GetComponent<BattleManager>().nextTurn();
+			}
         }
 
     }
 
-    private void Hit (GameObject target) {
-        PlayerStat ownerStat = this.owner.GetComponent<PlayerStat>();
-        PlayerStat targetStat = target.GetComponent<PlayerStat>();
-        targetStat.ReceiveDamage(ownerStat.attack);
+	private void Hit (GameObject target,Combatant targetCombatant) {
+		//PlayerStat ownerStat = this.owner.GetComponent<PlayerStat>();
+		//PlayerStat targetStat = target.GetComponent<PlayerStat>();
+		GenerateDamageText targetText = target.GetComponent<GenerateDamageText>();
+		CombatantComponent combatantComponent = gameObject.GetComponent<CombatantComponent>();
+		Combatant combatant = combatantComponent.combatant;
+		targetText.ReceiveDamage(combatant.Status[4].GetValue());
     }
 
     private bool MoveTowardsTarget(Vector3 target) {

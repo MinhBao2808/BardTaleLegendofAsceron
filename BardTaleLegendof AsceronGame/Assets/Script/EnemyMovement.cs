@@ -139,7 +139,6 @@ public class EnemyMovement : MovingObject {
 
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "Player") {
-			Debug.Log("a");
 			Destroy(this.gameObject);
 			GameManager.instance.GoToBattle();
 		}

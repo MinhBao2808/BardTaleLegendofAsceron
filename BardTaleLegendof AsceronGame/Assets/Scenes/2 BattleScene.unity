@@ -228,7 +228,27 @@ Prefab:
     - target: {fileID: 223145043344447778, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
         type: 2}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224630706296046830, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+        type: 2}
+      propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224931841381123122, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224736952538576508, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223145043344447778, guid: 181a75ad9fcd34b96b0eee1e6b037e61,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: -804235197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 181a75ad9fcd34b96b0eee1e6b037e61, type: 2}
@@ -367,7 +387,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player2Position
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -457,7 +477,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player1Position
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1064,7 +1084,7 @@ GameObject:
   m_Layer: 0
   m_Name: Player3Position
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

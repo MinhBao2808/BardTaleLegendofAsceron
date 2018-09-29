@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: -575660022, guid: f4979b3083d349140bb14b6ec7fc999a, type: 3}
   m_Name: ORKProject
   m_EditorClassIdentifier: 
-  time: 09/25/2018 15:20:57
+  time: 09/29/2018 11:46:15
   version: 2.17.1
   keys:
   - editorSettings
@@ -1974,36 +1974,33 @@ MonoBehaviour:
   - name: statusDevelopments
     xmlData: "<statusDevelopments>\n\t<_subarrays>\n\t\t<data>\n\t\t\t<0 minLevel=\"1\"
       maxLevel=\"99\" >\n\t\t\t\t<_string>\n\t\t\t\t\t<name><![CDATA[Player Development]]></name>\n\t\t\t\t</_string>\n\t\t\t\t<_subarrays>\n\t\t\t\t\t<statusValue>\n\t\t\t\t\t\t<0
+      type=\"0\" initValue=\"50\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</1>\n\t\t\t\t\t\t<2
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</3>\n\t\t\t\t\t\t<4
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</5>\n\t\t\t\t\t\t<6
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</6>\n\t\t\t\t\t\t<7 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</7>\n\t\t\t\t\t\t<8
       type=\"1\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t\t<_intarrays>\n\t\t\t\t\t\t\t\t<levelValue 0 202 303 404 505
-      606 707 808 909 1010 1111 1212 1313 1414 1515 1616 1717 1818 1919 2020 2121
-      2222 2323 2424 2525 2626 2727 2828 2929 3030 3131 3232 3333 3434 3535 3636 3737
-      3838 3939 4040 4141 4242 4343 4444 4545 4646 4747 4848 4949 5050 5151 5252 5353
-      5454 5555 5656 5757 5858 5959 6060 6161 6262 6363 6464 6565 6666 6767 6868 6969
-      7070 7171 7272 7373 7474 7575 7676 7777 7878 7979 8080 8181 8282 8383 8484 8585
-      8686 8787 8888 8989 9090 9191 9292 9393 9494 9595 9696 9797 9898 9999 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1></1>\n\t\t\t\t\t\t<2
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3></3>\n\t\t\t\t\t\t<4 type=\"0\" initValue=\"1\"
-      formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</5>\n\t\t\t\t\t\t<6 type=\"0\" initValue=\"1\" formulaID=\"0\"
-      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</6>\n\t\t\t\t\t\t<7
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</7>\n\t\t\t\t\t\t<8 type=\"1\" initValue=\"1\" formulaID=\"0\"
-      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t\t<_intarrays>\n\t\t\t\t\t\t\t\t<levelValue
-      0 2020 3030 4040 5050 6060 7070 8080 9090 10101 11111 12121 13131 14141 15151
-      16161 17171 18181 19191 20202 21212 22222 23232 24242 25252 26262 27272 28282
-      29292 30303 31313 32323 33333 34343 35353 36363 37373 38383 39393 40404 41414
-      42424 43434 44444 45454 46464 47474 48484 49494 50505 51515 52525 53535 54545
-      55555 56565 57575 58585 59595 60606 61616 62626 63636 64646 65656 66666 67676
-      68686 69696 70707 71717 72727 73737 74747 75757 76767 77777 78787 79797 80808
-      81818 82828 83838 84848 85858 86868 87878 88888 89898 90909 91919 92929 93939
-      94949 95959 96969 97979 98989 100000 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</8>\n\t\t\t\t\t\t<9
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t\t<_intarrays>\n\t\t\t\t\t\t\t\t<levelValue 0 2020 3030 4040
+      5050 6060 7070 8080 9090 10101 11111 12121 13131 14141 15151 16161 17171 18181
+      19191 20202 21212 22222 23232 24242 25252 26262 27272 28282 29292 30303 31313
+      32323 33333 34343 35353 36363 37373 38383 39393 40404 41414 42424 43434 44444
+      45454 46464 47474 48484 49494 50505 51515 52525 53535 54545 55555 56565 57575
+      58585 59595 60606 61616 62626 63636 64646 65656 66666 67676 68686 69696 70707
+      71717 72727 73737 74747 75757 76767 77777 78787 79797 80808 81818 82828 83838
+      84848 85858 86868 87878 88888 89898 90909 91919 92929 93939 94949 95959 96969
+      97979 98989 100000 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</8>\n\t\t\t\t\t\t<9
+      type=\"0\" initValue=\"3\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t</9>\n\t\t\t\t\t</statusValue>\n\t\t\t\t\t<upgrade>\n\t\t\t\t\t</upgrade>\n\t\t\t\t</_subarrays>\n\t\t\t</0>\n\t\t\t<1
       minLevel=\"1\" maxLevel=\"10\" >\n\t\t\t\t<_string>\n\t\t\t\t\t<name><![CDATA[Player2
       Development]]></name>\n\t\t\t\t</_string>\n\t\t\t\t<_subarrays>\n\t\t\t\t\t<statusValue>\n\t\t\t\t\t\t<0
-      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      type=\"0\" initValue=\"30\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1></1>\n\t\t\t\t\t\t<2 type=\"0\" initValue=\"1\"
       formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3></3>\n\t\t\t\t\t\t<4
       type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
@@ -2015,7 +2012,7 @@ MonoBehaviour:
       type=\"1\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t\t<_intarrays>\n\t\t\t\t\t\t\t\t<levelValue 0 20000 30000 40000
       50000 60000 70000 80000 90000 100000 />\n\t\t\t\t\t\t\t</_intarrays>\n\t\t\t\t\t\t</8>\n\t\t\t\t\t\t<9
-      type=\"0\" initValue=\"2\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      type=\"0\" initValue=\"4\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t</9>\n\t\t\t\t\t</statusValue>\n\t\t\t\t\t<upgrade>\n\t\t\t\t\t</upgrade>\n\t\t\t\t</_subarrays>\n\t\t\t</1>\n\t\t</data>\n\t</_subarrays>\n</statusDevelopments>\n"
     lookUp:
       textures: []
@@ -2919,7 +2916,7 @@ MonoBehaviour:
       ownShortcutListCount=\"False\" replaceDefaultShortcuts=\"False\" replaceDefaultAutoAddSlots=\"False\"
       replaceDefaultAutoArrangeSlots=\"False\" useBattleAnims=\"False\" autoMoveAnimation=\"False\"
       useMoveAI=\"False\" useBattleMoveAI=\"False\" />\n\t\t\t\t<_intarrays>\n\t\t\t\t\t<controlMap
-      />\n\t\t\t\t\t<startValue 80 0 5 0 25 22 5 2 15 3 />\n\t\t\t\t\t<defenceAttributeID
+      />\n\t\t\t\t\t<startValue 80 0 5 0 1 22 5 2 15 2 />\n\t\t\t\t\t<defenceAttributeID
       0 1 />\n\t\t\t\t\t<actionCombo />\n\t\t\t\t\t<money 50 />\n\t\t\t\t</_intarrays>\n\t\t\t\t<_floatarrays>\n\t\t\t\t\t<spawnOffset
       0 0 0 />\n\t\t\t\t</_floatarrays>\n\t\t\t\t<_string>\n\t\t\t\t\t<prefabRoot><![CDATA[]]></prefabRoot>\n\t\t\t\t\t<animationCustomName><![CDATA[]]></animationCustomName>\n\t\t\t\t</_string>\n\t\t\t\t<_gameobject
       prefab=\"2\" />\n\t\t\t\t<buyPriceValue type=\"0\" id=\"0\" rounding=\"0\" >\n\t\t\t\t\t<_float
@@ -2996,7 +2993,7 @@ MonoBehaviour:
       ownShortcutListCount=\"False\" replaceDefaultShortcuts=\"False\" replaceDefaultAutoAddSlots=\"False\"
       replaceDefaultAutoArrangeSlots=\"False\" useBattleAnims=\"False\" autoMoveAnimation=\"False\"
       useMoveAI=\"False\" useBattleMoveAI=\"False\" />\n\t\t\t\t<_intarrays>\n\t\t\t\t\t<controlMap
-      />\n\t\t\t\t\t<startValue 75 0 5 0 25 22 5 5 5 2 />\n\t\t\t\t\t<defenceAttributeID
+      />\n\t\t\t\t\t<startValue 75 0 5 0 1 22 5 5 5 1 />\n\t\t\t\t\t<defenceAttributeID
       0 1 />\n\t\t\t\t\t<actionCombo />\n\t\t\t\t\t<money 50 />\n\t\t\t\t</_intarrays>\n\t\t\t\t<_floatarrays>\n\t\t\t\t\t<spawnOffset
       0 0 0 />\n\t\t\t\t</_floatarrays>\n\t\t\t\t<_string>\n\t\t\t\t\t<prefabRoot><![CDATA[]]></prefabRoot>\n\t\t\t\t\t<animationCustomName><![CDATA[]]></animationCustomName>\n\t\t\t\t</_string>\n\t\t\t\t<_gameobject
       prefab=\"3\" />\n\t\t\t\t<buyPriceValue type=\"0\" id=\"0\" rounding=\"0\" >\n\t\t\t\t\t<_float

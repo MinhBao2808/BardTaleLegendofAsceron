@@ -26,8 +26,10 @@ public class BattleManager : MonoBehaviour {
 	private Combatant[] playerCombatant = new Combatant[3];
 	private Group enemyGroup;
 	private Group playerGroup;
-    private List<PlayerStat> unitStats;
-	private List<Combatant> enemyList;
+	public List<Combatant> unitStats;
+	public List<Combatant> enemyList;
+	public Queue<Combatant> unitLists;
+	public bool isFirstTurn;
 	private List<Combatant> playerList;
     //private List<int> unitTurn;
     private GameObject playerParty;
@@ -41,6 +43,8 @@ public class BattleManager : MonoBehaviour {
     private bool playerSelectAttack = false;
     private bool playerAttack = false;
 	private float sumExpCanGet = 0.0f;
+	private Combatant currentUnit;
+	public bool[] isEnemyDead = new bool[6];
 	//private Vector3 selectorPositionY = new Vector3(0, 3, 0);
 
 	private void SpawnEnemy () {
@@ -79,11 +83,6 @@ public class BattleManager : MonoBehaviour {
 		playerGroup = new Group(0);
 		SpawnEnemy();
 		SpawnPlayer();
-		//Combatant enemy1 = ORK.Combatants.Create(2, enemyGroup);
-		//enemy1.Init();
-		//enemy1.Spawn(enemySpawnPositions[0].transform.position, false,enemySpawnPositions[0].transform.rotation.y, false,enemySpawnPositions[0].transform.localScale);
-		//var hp = enemy1.Status[0];
-		//Debug.Log(hp.GetValue());
 		//if (GameManager.instance.level == Level.Passive) {
 		//	timer = 30.0f;
 		//}
@@ -96,6 +95,10 @@ public class BattleManager : MonoBehaviour {
 		//if (GameManager.instance.level == Level.Nightmare) {
 		//	timer = 5.0f;
 		//}
+		//set enemy is dead = false
+		for (int i = 0; i < enemyPositionIndex; i++) {
+			isEnemyDead[i] = false;
+		}
 		timer = ORK.Difficulties.GetBattleFactor() * 20.0f;
         time = timer;
 		//Debug.Log(time);
@@ -107,9 +110,10 @@ public class BattleManager : MonoBehaviour {
 
     void Start() {
         //this.playerParty = GameObject.Find("PlayerParty");
-        unitStats = new List<PlayerStat>();
 		enemyList = new List<Combatant>();
 		playerList = new List<Combatant>();
+		unitStats = new List<Combatant>();
+		//unitLists = new Queue<Combatant>();
 		//unitTurn = new List<int>();
 		//GameObject[] playerUnits = GameObject.FindGameObjectsWithTag("PlayerUnit");
 		//foreach (GameObject playerUnit in playerUnits) {
@@ -133,15 +137,12 @@ public class BattleManager : MonoBehaviour {
 		enemyList.Sort(delegate (Combatant x, Combatant y) {
 			return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
 		});
-		Debug.Log(enemyList.Count);
 		for (int i = 0; i < 2; i++ ){
 			playerList.Add(playerCombatant[i]);
 		}
 		playerList.Sort(delegate (Combatant x, Combatant y) {
 			return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
 		});
-		Debug.Log(enemyPositionIndex);
-        unitStats.Sort();
         this.actionsMenu.SetActive(false);
         this.playerHealthName.SetActive(false);
 		this.playerAvatar.SetActive(false);
@@ -163,16 +164,62 @@ public class BattleManager : MonoBehaviour {
 		//	GameObject currentUnitObject = currentUnit.GameObject;
 		//	Instantiate(selector, enemySpawnPositions[0].transform.position, enemySpawnPositions[0].transform.rotation);
 		//}
-		Combatant currentUnit = playerList[0];
-		if (isPlayerSelectEnemy == false) {
-			Instantiate(selector, enemySpawnPositions[0].transform.position, enemySpawnPositions[0].transform.rotation);
+        //check is game over
+		GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
+		if (remainEnemyUnit.Length == 0) {
+			GameManager.instance.LoadMapScene();
 		}
-		if (isPlayerSelectEnemy == true) {
-			playerList.Remove(currentUnit);
-			Debug.Log(enemySelectedPositionIndex);
-			currentUnit.GameObject.GetComponent<GetPlayerAction>().AttackTarget(enemySpawnPositions[enemySelectedPositionIndex]);
-			isPlayerSelectEnemy = false;
+		GameObject[] remainPlayerUnit = GameObject.FindGameObjectsWithTag("PlayerUnit");
+        if (remainPlayerUnit.Length == 0) {
+            GameManager.instance.LoadGameMenu();
+        }
+		isFirstTurn = true;
+        //check enemy turn
+		if (playerList.Count == 0) {
+			//go to next turn
+			if (playerList.Count == 0 && enemyList.Count == 0) {
+				for (int i = 0; i < 2; i++) {
+					unitStats.Add(playerCombatant[i]);
+				}
+				for (int i = 0; i < enemyPositionIndex; i++) {
+					unitStats.Add(enemyCombatant[i]);
+				}
+				unitStats.Sort(delegate (Combatant x, Combatant y) {
+                    return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
+                });
+				unitLists = new Queue<Combatant>(unitStats);
+				this.nextTurn();
+			}
+			//enemy turn
+			else {
+				currentUnit = enemyList[0];
+                enemyList.Remove(currentUnit);
+                enemyTurn = true;
+                currentUnit.GameObject.GetComponent<EnemyAction>().Action();
+			}
+        }
+		else {
+			currentUnit = playerList[0];
+			//choose enemy
+            if (isPlayerSelectEnemy == false) {
+                for (int i = 0; i < enemyPositionIndex; i++) {
+                    if (isEnemyDead[enemyPositionIndex] == false) {
+                        Instantiate(selector, enemySpawnPositions[i].transform.position, enemySpawnPositions[i].transform.rotation);
+                        break;
+                    }
+                }
+            }
+            //player turn
+            if (isPlayerSelectEnemy == true) {
+                enemyTurn = false;
+                playerList.Remove(currentUnit);
+                currentUnit.GameObject.GetComponent<GetPlayerAction>().
+                           AttackTarget(enemyCombatant[enemySelectedPositionIndex].GameObject,
+                                                                                    enemyCombatant[enemySelectedPositionIndex]);
+                isPlayerSelectEnemy = false;
+            }
 		}
+       
 	}
 
     void Update() {
@@ -204,6 +251,7 @@ public class BattleManager : MonoBehaviour {
     }
 
     public void nextTurn() {
+		isFirstTurn = false;
         this.actionsMenu.SetActive(false);
         this.playerHealthName.SetActive(false);
 		this.playerAvatar.SetActive(false);
@@ -213,58 +261,77 @@ public class BattleManager : MonoBehaviour {
         GameObject[] remainEnemyUnit = GameObject.FindGameObjectsWithTag("Enemy");
         
         if (remainEnemyUnit.Length == 0) {
-            GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
-            for (var i = 0; i < playerObject.Length; i++) {
-				if (playerObject[i].gameObject.name == "Player1") {
-					playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
-					DataManager.instance.maxHealthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
-					DataManager.instance.currentExpPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
-					DataManager.instance.levelPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
-					DataManager.instance.maxManaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
-                    DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
-                    DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
-                    DataManager.instance.healthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
-                    DataManager.instance.magicPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
-                    DataManager.instance.manaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
-                    DataManager.instance.speedPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
-                }
-                else if(playerObject[i].gameObject.name == "Player2") {
-					playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
-					DataManager.instance.maxHealthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
-					DataManager.instance.currentExpPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
-					DataManager.instance.levelPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
-					DataManager.instance.maxManaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxMana;
-                    DataManager.instance.attackPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
-                    DataManager.instance.defensePlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
-                    DataManager.instance.healthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
-                    DataManager.instance.magicPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
-                    DataManager.instance.manaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
-                    DataManager.instance.speedPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
-                }
-            }
+    //        GameObject[] playerObject = GameObject.FindGameObjectsWithTag("PlayerUnit");
+    //        for (var i = 0; i < playerObject.Length; i++) {
+				//if (playerObject[i].gameObject.name == "Player1") {
+					//playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
+					//DataManager.instance.maxHealthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					//DataManager.instance.currentExpPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
+					//DataManager.instance.levelPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
+					//DataManager.instance.maxManaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+     //               DataManager.instance.attackPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
+     //               DataManager.instance.defensePlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
+     //               DataManager.instance.healthPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
+     //               DataManager.instance.magicPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
+     //               DataManager.instance.manaPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
+     //               DataManager.instance.speedPlayer1 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
+     //           }
+     //           else if(playerObject[i].gameObject.name == "Player2") {
+					//playerObject[i].gameObject.GetComponent<PlayerStat>().calculateExp(sumExpCanGet / playerObject.Length);
+					//DataManager.instance.maxHealthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxHealth;
+					//DataManager.instance.currentExpPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().currentExp;
+					//DataManager.instance.levelPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().playerLv;
+					//DataManager.instance.maxManaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().maxMana;
+            //        DataManager.instance.attackPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().attack;
+            //        DataManager.instance.defensePlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().defense;
+            //        DataManager.instance.healthPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().health;
+            //        DataManager.instance.magicPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().magic;
+            //        DataManager.instance.manaPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().mana;
+            //        DataManager.instance.speedPlayer2 = playerObject[i].gameObject.GetComponent<PlayerStat>().speed;
+            //    }
+            //}
             GameManager.instance.LoadMapScene();
         }
         GameObject[] remainPlayerUnit = GameObject.FindGameObjectsWithTag("PlayerUnit");
         if (remainPlayerUnit.Length == 0) {
             GameManager.instance.LoadGameMenu();
         }
-        PlayerStat currentUnitStat = unitStats[0];
-        unitStats.Remove(currentUnitStat);
-        if (!currentUnitStat.isDead()) {
-            GameObject currentUnit = currentUnitStat.gameObject;
-            currentUnitStat.CalculateNextTurn(currentUnitStat.nextActTurn);
-            unitStats.Add(currentUnitStat);
+		Debug.Log(isFirstTurn);
+		isFirstTurn = false;
+		currentUnit = unitStats[0];
+        unitStats.Remove(currentUnit);
+		if (currentUnit.GameObject.tag != "DeadUnit") {
+            //GameObject currentUnit = currentUnitStat.gameObject;
+            unitStats.Add(currentUnit);
             //unitStats.Sort();
-            if (currentUnit.tag == "PlayerUnit") {
-                enemyTurn = false;
-                this.playerParty.GetComponent<ChoosePlayer>().SelectCurrentPlayer(currentUnit.gameObject,currentUnitStat);
+			if (currentUnit.GameObject.tag == "PlayerUnit") {
+				//choose enemy
+				if (isPlayerSelectEnemy == false) {
+                    for (int i = 0; i < enemyPositionIndex; i++) {
+                        if (isEnemyDead[i] == false) {
+							Instantiate(selector, enemySpawnPositions[i].transform.position,
+                      enemySpawnPositions[i].transform.rotation);
+                            break;
+                        }
+                    }
+                }
+                //player turn
+				if (isPlayerSelectEnemy == true) {
+                    enemyTurn = false;
+                    playerList.Remove(currentUnit);
+                    currentUnit.GameObject.GetComponent<GetPlayerAction>().
+                               AttackTarget(enemyCombatant[enemySelectedPositionIndex].GameObject,
+                                                                                        enemyCombatant[enemySelectedPositionIndex]);
+                    isPlayerSelectEnemy = false;
+                }
             }
             else {
                 enemyTurn = true;
-                currentUnit.GetComponent<EnemyAction>().Action();
+				currentUnit.GameObject.GetComponent<EnemyAction>().Action();
             }
         }
         else {
+			unitStats.Add(currentUnit);
             this.nextTurn();
         }
     }

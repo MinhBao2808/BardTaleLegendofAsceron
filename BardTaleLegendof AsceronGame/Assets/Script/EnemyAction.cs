@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ORKFramework;
+using ORKFramework.Behaviours;
 
 public class EnemyAction : MonoBehaviour {
     [SerializeField] private string targetsTag;
@@ -34,6 +36,7 @@ public class EnemyAction : MonoBehaviour {
 
     IEnumerator TimeForAction(GameObject target) {
         Vector3 targetPosition = new Vector3(target.transform.position.x + 1.0f, target.transform.position.y, target.transform.position.z);
+		Debug.Log(targetPosition);
         while (MoveTowardsTarget(targetPosition)) {
             yield return null;
         }
@@ -49,17 +52,26 @@ public class EnemyAction : MonoBehaviour {
         }
         if (actionStarted == true) {
             GameObject turnSystem = GameObject.Find("BattleManager");
-            turnSystem.GetComponent<BattleManager>().nextTurn();
+			if (BattleManager.instance.isFirstTurn == true) {
+				turnSystem.GetComponent<BattleManager>().FristTurn();
+			}
+			else {
+				turnSystem.GetComponent<BattleManager>().nextTurn();
+			}
         }
     }
 
     private void Hit(GameObject target) {
-        PlayerStat ownerStat = this.owner.GetComponent<PlayerStat>();
-        PlayerStat targetStat = target.GetComponent<PlayerStat>();
-        targetStat.ReceiveDamage(ownerStat.attack);
+        //PlayerStat ownerStat = this.owner.GetComponent<PlayerStat>();
+        //PlayerStat targetStat = target.GetComponent<PlayerStat>();
+		GenerateDamageText targetText = target.GetComponent<GenerateDamageText>();
+        CombatantComponent combatantComponent = gameObject.GetComponent<CombatantComponent>();
+        Combatant combatant = combatantComponent.combatant;
+        targetText.ReceiveDamage(combatant.Status[4].GetValue());
+        //targetStat.ReceiveDamage(ownerStat.attack);
     }
 
     private bool MoveTowardsTarget(Vector3 target) {
-        return target != (transform.position = Vector3.MoveTowards(transform.position, target, 15.0f * Time.deltaTime));
+        return target != (transform.position = Vector3.MoveTowards(transform.position, target, 100.0f * Time.deltaTime));
     }
 }

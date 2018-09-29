@@ -38,6 +38,6 @@ public class ChoosePlayer : MonoBehaviour {
         BattleManager.instance.SetPlayerAttack();
         this.actionsMenu.SetActive(false);
         this.enemyUnitsMenu.SetActive(false);
-        this.currentPlayer.GetComponent<GetPlayerAction>().AttackTarget(enemy);
+        //this.currentPlayer.GetComponent<GetPlayerAction>().AttackTarget(enemy);
     }
 }

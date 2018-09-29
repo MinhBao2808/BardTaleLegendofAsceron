@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4676846107300488}
   - component: {fileID: 114082393343993186}
   - component: {fileID: 212086860003373616}
+  - component: {fileID: 114821445692201078}
   m_Layer: 0
   m_Name: Player2
   m_TagString: PlayerUnit
@@ -53,6 +54,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1630266996829792}
+--- !u!114 &114821445692201078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1630266996829792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94de222f5f0f46e3b83e302b367a59f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageText: {fileID: 1481934256279706, guid: 4901c953b5233470e8d35ed7c6b3ec1b, type: 2}
+  damageTextOffset: 1.5
 --- !u!212 &212086860003373616
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -85,8 +99,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -804235197
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ef03930e7b6eb45f6b8417bc7b5ccf75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
