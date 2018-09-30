@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: -575660022, guid: f4979b3083d349140bb14b6ec7fc999a, type: 3}
   m_Name: ORKProject
   m_EditorClassIdentifier: 
-  time: 09/29/2018 11:46:15
+  time: 09/30/2018 15:07:53
   version: 2.17.1
   keys:
   - editorSettings
@@ -2001,8 +2001,11 @@ MonoBehaviour:
       minLevel=\"1\" maxLevel=\"10\" >\n\t\t\t\t<_string>\n\t\t\t\t\t<name><![CDATA[Player2
       Development]]></name>\n\t\t\t\t</_string>\n\t\t\t\t<_subarrays>\n\t\t\t\t\t<statusValue>\n\t\t\t\t\t\t<0
       type=\"0\" initValue=\"30\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
-      />\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1></1>\n\t\t\t\t\t\t<2 type=\"0\" initValue=\"1\"
-      formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3></3>\n\t\t\t\t\t\t<4
+      />\n\t\t\t\t\t\t</0>\n\t\t\t\t\t\t<1 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</1>\n\t\t\t\t\t\t<2
+      type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
+      />\n\t\t\t\t\t\t</2>\n\t\t\t\t\t\t<3 type=\"0\" initValue=\"1\" formulaID=\"0\"
+      >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</3>\n\t\t\t\t\t\t<4
       type=\"0\" initValue=\"1\" formulaID=\"0\" >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\"
       />\n\t\t\t\t\t\t</4>\n\t\t\t\t\t\t<5 type=\"0\" initValue=\"1\" formulaID=\"0\"
       >\n\t\t\t\t\t\t\t<_float initialValueFormula=\"0\" />\n\t\t\t\t\t\t</5>\n\t\t\t\t\t\t<6
@@ -3675,16 +3678,10 @@ MonoBehaviour:
     encrypted: 0
   - name: mainMenu
     xmlData: "<mainMenu mainMenuLoadSceneMode=\"0\" newGameLoadSceneMode=\"0\" startGroupID=\"0\"
-      >\n\t<_float waitTime=\"0\" />\n\t<_bool mainMenuLoadAsync=\"False\" autoCall=\"True\"
-      newGameLoadAsync=\"False\" newGameStopMusic=\"True\" setStartGroup=\"False\"
-      useFadeOut=\"True\" useFadeIn=\"True\" />\n\t<_string>\n\t\t<mainMenuScene><![CDATA[0
-      GameMenu]]></mainMenuScene>\n\t\t<newGameScene><![CDATA[1 MapScene]]></newGameScene>\n\t</_string>\n\t<fadeOut
-      interpolation=\"0\" >\n\t\t<_float time=\"0.5\" />\n\t\t<_bool alpha=\"True\"
-      red=\"False\" green=\"False\" blue=\"False\" fromCurrent=\"False\" />\n\t\t<_floatarrays>\n\t\t\t<startColor
-      0 0 0 0 />\n\t\t\t<endColor 0 0 0 1 />\n\t\t</_floatarrays>\n\t</fadeOut>\n\t<fadeIn
-      interpolation=\"0\" >\n\t\t<_float time=\"0.5\" />\n\t\t<_bool alpha=\"True\"
-      red=\"False\" green=\"False\" blue=\"False\" fromCurrent=\"False\" />\n\t\t<_floatarrays>\n\t\t\t<startColor
-      0 0 0 1 />\n\t\t\t<endColor 0 0 0 0 />\n\t\t</_floatarrays>\n\t</fadeIn>\n\t<menu
+      >\n\t<_float waitTime=\"0\" />\n\t<_bool mainMenuLoadAsync=\"False\" autoCall=\"False\"
+      newGameLoadAsync=\"False\" newGameStopMusic=\"False\" setStartGroup=\"False\"
+      useFadeOut=\"False\" useFadeIn=\"False\" />\n\t<_string>\n\t\t<mainMenuScene><![CDATA[0
+      GameMenu]]></mainMenuScene>\n\t\t<newGameScene><![CDATA[1 MapScene]]></newGameScene>\n\t</_string>\n\t<menu
       guiBoxID=\"0\" autoSaveGuiBoxID=\"0\" difficultyGuiBoxID=\"0\" languageGuiBoxID=\"0\"
       optionsGuiBoxID=\"0\" aboutGuiBoxID=\"0\" >\n\t\t<_bool useTitle=\"True\" usePortrait=\"False\"
       showContinue=\"True\" hideContinue=\"True\" useContinuePortrait=\"False\" useNewGamePortrait=\"False\"
@@ -3709,7 +3706,7 @@ MonoBehaviour:
       useCustomSkin=\"False\" setIconSize=\"False\" />\n\t\t\t</customSkin>\n\t\t\t<_subarrays>\n\t\t\t\t<button>\n\t\t\t\t\t<0>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[About]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</0>\n\t\t\t\t\t<1>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</1>\n\t\t\t\t</button>\n\t\t\t</_subarrays>\n\t\t</aboutButton>\n\t\t<urlButton>\n\t\t\t<customSkin>\n\t\t\t\t<_bool
       useCustomSkin=\"False\" setIconSize=\"False\" />\n\t\t\t</customSkin>\n\t\t\t<_subarrays>\n\t\t\t\t<button>\n\t\t\t\t\t<0>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[Open
       URL]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</0>\n\t\t\t\t\t<1>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</1>\n\t\t\t\t</button>\n\t\t\t</_subarrays>\n\t\t</urlButton>\n\t\t<exitButton>\n\t\t\t<customSkin>\n\t\t\t\t<_bool
-      useCustomSkin=\"False\" setIconSize=\"False\" />\n\t\t\t</customSkin>\n\t\t\t<_subarrays>\n\t\t\t\t<button>\n\t\t\t\t\t<0>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[Exit]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</0>\n\t\t\t\t\t<1>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</1>\n\t\t\t\t</button>\n\t\t\t</_subarrays>\n\t\t</exitButton>\n\t\t<_subarrays>\n\t\t\t<customChoice>\n\t\t\t</customChoice>\n\t\t</_subarrays>\n\t</menu>\n\t<exitChoice
+      useCustomSkin=\"False\" setIconSize=\"False\" />\n\t\t\t</customSkin>\n\t\t\t<_subarrays>\n\t\t\t\t<button>\n\t\t\t\t\t<0>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[Exit]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</0>\n\t\t\t\t\t<1>\n\t\t\t\t\t\t<_string>\n\t\t\t\t\t\t\t<name><![CDATA[]]></name>\n\t\t\t\t\t\t\t<description><![CDATA[]]></description>\n\t\t\t\t\t\t</_string>\n\t\t\t\t\t</1>\n\t\t\t\t</button>\n\t\t\t</_subarrays>\n\t\t</exitButton>\n\t\t<_subarrays>\n\t\t\t<gameOptions>\n\t\t\t</gameOptions>\n\t\t\t<customChoice>\n\t\t\t</customChoice>\n\t\t</_subarrays>\n\t</menu>\n\t<exitChoice
       guiBoxID=\"0\" >\n\t\t<_bool useTitle=\"False\" />\n\t\t<_stringarrays>\n\t\t\t<message>\n\t\t\t\t<0><![CDATA[]]></0>\n\t\t\t\t<1><![CDATA[]]></1>\n\t\t\t</message>\n\t\t</_stringarrays>\n\t\t<choiceSettings>\n\t\t\t<_bool
       useChoice=\"False\" />\n\t\t</choiceSettings>\n\t</exitChoice>\n</mainMenu>\n"
     lookUp:
