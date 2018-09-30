@@ -7951,7 +7951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 532993614}
-  selectedObject: {fileID: 0}
+  selectedObject: {fileID: 586396999}
 --- !u!114 &1296634444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,6 +8000,7 @@ MonoBehaviour:
   savefilesPrefabs: {fileID: 1546681754604458, guid: 4f446d2340b5a214fad3b24f023119bb,
     type: 2}
   viewContent: {fileID: 586396999}
+  thumbnail: {fileID: 931618879}
 --- !u!1 &1306777340
 GameObject:
   m_ObjectHideFlags: 0

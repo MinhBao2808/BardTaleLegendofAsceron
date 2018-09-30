@@ -8,6 +8,7 @@ public class LoadgameScripts : MonoBehaviour {
 
     public GameObject savefilesPrefabs;
     public GameObject viewContent;
+    public Image thumbnail;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,8 @@ public class LoadgameScripts : MonoBehaviour {
             Debug.Log(files[totalPref - 1 - i].FullName);
             savefilesButton.GetComponent<SavefilesInfo>().ParseFileInfo(
                 files[totalPref - 1 - i]);
+            savefilesButton.GetComponent<SavefilesInfo>().thumbnail = thumbnail;
         }
+        thumbnail.gameObject.SetActive(false);
 	}
 }

@@ -245,6 +245,7 @@ MonoBehaviour:
   date: {fileID: 114296598002667878}
   saveType: {fileID: 114123297554428192}
   playTime: {fileID: 114476996686997688}
+  thumbnail: {fileID: 0}
 --- !u!114 &114439957078400420
 MonoBehaviour:
   m_ObjectHideFlags: 1
