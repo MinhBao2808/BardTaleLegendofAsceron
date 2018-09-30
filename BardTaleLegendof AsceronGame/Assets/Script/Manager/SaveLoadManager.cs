@@ -2,6 +2,7 @@
 using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveLoadManager : MonoBehaviour {
@@ -17,7 +18,7 @@ public class SaveLoadManager : MonoBehaviour {
     public static SaveLoadManager Instance
     {
         get { return _instance; }
-    }
+    }   
 
     private void Awake()
     {
@@ -67,7 +68,10 @@ public class SaveLoadManager : MonoBehaviour {
     public void Continue()
     {
         FileInfo[] files = LoadAllSavefile();
-        Load(files[files.Length - 1].FullName);
+        if (files != null)
+        {
+            Load(files[files.Length - 1].FullName);
+        }
     }
 
     public void Load(string path)
@@ -92,13 +96,29 @@ public class SaveLoadManager : MonoBehaviour {
         {
             Debug.Log(savePaths[i]);
         }*/
-        DirectoryInfo di = new DirectoryInfo(savePath);
-        FileInfo[] files = di.GetFiles("*" + FILE_EXTENSION).OrderBy(p => p.CreationTime).ToArray();
-        //for(int i=0;i<files.Length;i++)
-        //{
-        //    Debug.Log(files[i].FullName);
-        //}
-        return files;
+
+        if (!Directory.Exists(savePath))
+        {
+            Directory.CreateDirectory(savePath);
+            return null;
+        }
+        else
+        {
+            DirectoryInfo di = new DirectoryInfo(savePath);
+            FileInfo[] files = di.GetFiles("*" + FILE_EXTENSION).OrderBy(p => p.CreationTime).ToArray();
+            //for(int i=0;i<files.Length;i++)
+            //{
+            //    Debug.Log(files[i].FullName);
+            //}
+            if (files.Length > 0)
+            {
+                return files;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 
     void SaveScreenshot(string path)
@@ -123,7 +143,7 @@ public class PlayerData
 {
     public int playTime;
     public int difficulty;
-    public Character[] characters;
+    public List<Character> characters;
     public int currency;
 
     public PlayerData()
@@ -154,8 +174,8 @@ public class Character
     public int iceRes;
     public int cosmosRes;
     public int chaosRes;
-    public int[] skillIDs;
-    public Equipment[] equipments;
+    public List<int> skillIDs;
+    public List<Equipment> equipments;
 }
 
 [Serializable]

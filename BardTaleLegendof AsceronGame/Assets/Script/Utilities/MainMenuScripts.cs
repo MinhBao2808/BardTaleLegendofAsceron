@@ -8,7 +8,7 @@ public class MainMenuScripts : MonoBehaviour {
 
     private void Start()
     {
-        if(SaveLoadManager.Instance.LoadAllSavefile().Length == 0)
+        if(SaveLoadManager.Instance.LoadAllSavefile() == null)
         {
             continueButton.gameObject.SetActive(false);
         }
