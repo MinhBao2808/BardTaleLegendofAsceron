@@ -140,7 +140,8 @@ public class EnemyMovement : MovingObject {
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == "Player") {
 			Destroy(this.gameObject);
-			GameManager.instance.GoToBattle();
+			//GameManager.instance.GoToBattle();
+			ScreenManager.Instance.TriggerBattleFadeOut();
 		}
 	}
 
