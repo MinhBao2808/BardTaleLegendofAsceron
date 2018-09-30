@@ -187,6 +187,7 @@ public class BattleManager : MonoBehaviour {
 				unitStats.Sort(delegate (Combatant x, Combatant y) {
                     return y.Status[9].GetValue().CompareTo(x.Status[9].GetValue());
                 });
+                //create queue for next turn
 				unitLists = new Queue<Combatant>(unitStats);
 				this.nextTurn();
 			}

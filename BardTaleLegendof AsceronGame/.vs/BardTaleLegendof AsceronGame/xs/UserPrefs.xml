@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{5740844B-10B4-2404-B194-D815115ADC54}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BattleManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerMovement.cs">
     <Files>
-      <File FileName="Assets/Script/BattleManager.cs" Line="190" Column="48" />
+      <File FileName="Assets/Script/BattleManager.cs" Line="190" Column="45" />
       <File FileName="Assets/Script/GameManager.cs" Line="43" Column="75" />
       <File FileName="Assets/Script/EnemyMovement.cs" Line="101" Column="1" />
-      <File FileName="Assets/Script/PlayerMovement.cs" Line="113" Column="6" />
+      <File FileName="Assets/Script/PlayerMovement.cs" Line="79" Column="6" />
       <File FileName="Assets/Script/EnemyAction.cs" Line="40" Column="52" />
       <File FileName="Assets/Script/StartBattle.cs" Line="21" Column="56" />
       <File FileName="Assets/Script/SelectOnInput.cs" Line="15" Column="32" />

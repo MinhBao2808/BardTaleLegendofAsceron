@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MovingObject {
     public static PlayerMovement instance = null;
 	[SerializeField] private GameObject StatPanel;
-	private Animator animator;
 	private Rigidbody rigid;
+	private Animation animation;
 	private CharacterController characterController;
 	[SerializeField] private Transform cameraT;
 	[SerializeField] private float inputDelay = 0.1f;
@@ -34,7 +34,8 @@ public class PlayerMovement : MovingObject {
 	private void Start() {
 		targetRotation = transform.rotation;
 		rigid = GetComponent<Rigidbody>();
-		animator = GetComponent<Animator>();
+		animation = GetComponent<Animation>();
+		//animation.Play("idle");
 		characterController = GetComponent<CharacterController>();
 		forwardInput = turnInput = 0;
 	}
@@ -63,13 +64,19 @@ public class PlayerMovement : MovingObject {
 		Vector2 inputDir = input.normalized;
 		if (inputDir != Vector2.zero) {
 			float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
-			transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
-			animator.SetBool("Moving", true);
+			transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, 
+			                                                           targetRotation, ref turnSmoothVelocity, turnSmoothTime);
 			Vector3 velocity = transform.forward * currentSpeed;
+			if (currentSpeed == sprintSpeed) {
+				//animation.PlayQueued("Run");
+			}
+			else {
+				//animation.PlayQueued("Walk");
+			}
 			characterController.Move(velocity * Time.deltaTime);
 		}
 		else {
-			animator.SetBool("Moving", false);
+			//animation.Play("idle");
 		}
 
 		//currentSpeed = Mathf.SmoothDamp(currentSpeed, speed * inputDir.magnitude, ref speedSmoothVelocity, speedSmoothTime);
